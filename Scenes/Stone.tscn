@@ -1,22 +1,16 @@
 [gd_scene load_steps=2 format=3 uid="uid://cifalne7y7gvx"]
 
-[ext_resource type="Script" uid="uid://c3cfqjbsu3lt1" path="res://stone.gd" id="1_177fh"]
+[ext_resource type="Script" uid="uid://c3cfqjbsu3lt1" path="res://Scripts/stone.gd" id="1_177fh"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Control" type="Node2D"]
 script = ExtResource("1_177fh")
 
 [node name="Button" type="Button" parent="."]
-layout_mode = 0
 offset_left = -104.0
 offset_top = -96.0
 offset_right = 104.0
 offset_bottom = 96.0
+button_mask = 3
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(0, -32)

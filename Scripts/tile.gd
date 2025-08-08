@@ -2,6 +2,7 @@ class_name Tile
 
 extends Node
 
+
 enum TileTypes {
 	PATH,
 	WALL,
