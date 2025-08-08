@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://osm34xkrkas8"]
 
-[ext_resource type="Script" uid="uid://cahktvllq13mh" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://cahktvllq13mh" path="res://Scripts/UI/main_menu.gd" id="1_5wsvm"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_06t4h")
+script = ExtResource("1_5wsvm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

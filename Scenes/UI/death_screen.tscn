@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmc2c5o77x4fu"]
 
-[ext_resource type="Script" uid="uid://d4e44jxvdmtc4" path="res://Scripts/death_screen.gd" id="1_rwas2"]
-[ext_resource type="Theme" uid="uid://b5rmpnk3vlw6h" path="res://Resources/Themes/Death_Menu.tres" id="2_tseak"]
+[ext_resource type="Script" uid="uid://d4e44jxvdmtc4" path="res://Scripts/UI/death_screen.gd" id="1_30dcm"]
+[ext_resource type="Theme" uid="uid://b5rmpnk3vlw6h" path="res://Resources/Themes/Death_Menu.tres" id="2_68xsb"]
 
 [sub_resource type="Gradient" id="Gradient_6bi5g"]
 offsets = PackedFloat32Array(0, 0.900285, 0.952991)
@@ -23,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rwas2")
+script = ExtResource("1_30dcm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -60,20 +60,20 @@ alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_tseak")
+theme = ExtResource("2_68xsb")
 
 [node name="Restart" type="Button" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme = ExtResource("2_tseak")
+theme = ExtResource("2_68xsb")
 text = "Restart"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_tseak")
+theme = ExtResource("2_68xsb")
 
 [node name="Main_Menu" type="Button" parent="VBoxContainer/MarginContainer2"]
 layout_mode = 2
-theme = ExtResource("2_tseak")
+theme = ExtResource("2_68xsb")
 text = "Main Menu"
 
 [connection signal="button_down" from="VBoxContainer/MarginContainer/Restart" to="." method="_on_restart_button_down"]

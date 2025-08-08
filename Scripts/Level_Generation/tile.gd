@@ -17,7 +17,7 @@ var colors : Dictionary[TileTypes,Color] = {
 }
 
 var type : TileTypes
-var scene = preload("res://Scenes/tile.tscn")
+var scene = preload("res://Scenes/Level_Generation/tile.tscn")
 
 const WALLS = ["Top_Wall","Left_Wall","Right_Wall","Bottom_Wall"]
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bslg7fepmqv5m"]
 
 [ext_resource type="Script" uid="uid://c30mchwt5uk1g" path="res://Scripts/test.gd" id="1_8od7v"]
-[ext_resource type="Script" uid="uid://bad1ft1luxwbd" path="res://Scripts/grid.gd" id="2_qc4db"]
-[ext_resource type="PackedScene" uid="uid://cw52mepe1nthx" path="res://Scenes/npc.tscn" id="3_qc4db"]
-[ext_resource type="PackedScene" uid="uid://iai6cc2gkejj" path="res://Scenes/enemy.tscn" id="3_ys1qc"]
+[ext_resource type="Script" uid="uid://bad1ft1luxwbd" path="res://Scripts/Level_Generation/grid.gd" id="2_qc4db"]
+[ext_resource type="PackedScene" uid="uid://cw52mepe1nthx" path="res://Scenes/Entities/npc.tscn" id="3_qc4db"]
+[ext_resource type="PackedScene" uid="uid://iai6cc2gkejj" path="res://Scenes/Entities/enemy.tscn" id="3_ys1qc"]
 
 [node name="Test" type="Node" node_paths=PackedStringArray("npc", "enemy")]
 script = ExtResource("1_8od7v")

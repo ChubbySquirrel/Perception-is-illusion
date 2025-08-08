@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://ds0ibosleqtph"]
 
-[ext_resource type="Script" uid="uid://k5e6vw1xhhfg" path="res://level_button.gd" id="1_k6cd2"]
+[ext_resource type="Script" uid="uid://k5e6vw1xhhfg" path="res://Scripts/UI/level_button.gd" id="1_bbr4g"]
 
 [node name="Control" type="MarginContainer" node_paths=PackedStringArray("button")]
 custom_minimum_size = Vector2(50, 50)
-script = ExtResource("1_k6cd2")
+script = ExtResource("1_bbr4g")
 button = NodePath("Panel/Button")
 
 [node name="Panel" type="Panel" parent="."]

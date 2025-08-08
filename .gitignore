@@ -19,3 +19,6 @@ mono_crash.*.json
 #Remove import files
 *.uid
 *.import
+
+#Remove test files from being tracked
+*test*

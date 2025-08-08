@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://o0odf3xtnn64"]
 
-[ext_resource type="Script" uid="uid://dkwwk5hdf7h1d" path="res://levels_view.gd" id="1_ckicd"]
+[ext_resource type="Script" uid="uid://dkwwk5hdf7h1d" path="res://Scripts/UI/levels_view.gd" id="1_ja7af"]
 
 [node name="Levels" type="Control" node_paths=PackedStringArray("grid")]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ckicd")
+script = ExtResource("1_ja7af")
 grid = NodePath("ScrollContainer/CenterContainer/GridContainer")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]

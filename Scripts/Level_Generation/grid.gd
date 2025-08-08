@@ -2,7 +2,7 @@ class_name Grid
 
 extends Node
 
-var player_scene = preload("res://Scenes/player.tscn")
+var player_scene = preload("res://Scenes/Entities/player.tscn")
 
 var found_start : bool = false
 
