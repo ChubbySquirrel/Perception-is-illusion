@@ -1,22 +1,61 @@
-[gd_scene load_steps=2 format=3 uid="uid://cifalne7y7gvx"]
+[gd_scene load_steps=13 format=3 uid="uid://cifalne7y7gvx"]
 
 [ext_resource type="Script" uid="uid://c3cfqjbsu3lt1" path="res://Scripts/stone.gd" id="1_177fh"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m3q8e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6slwf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rsbat"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_75567"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8q0i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xprqk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1pwx8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p124w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mokkv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_my2ym"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gmj56"]
+
 [node name="Control" type="Node2D"]
 script = ExtResource("1_177fh")
-type = null
 
 [node name="Button" type="Button" parent="."]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m3q8e")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_6slwf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rsbat")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_75567")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_r8q0i")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xprqk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1pwx8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_p124w")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mokkv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_my2ym")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gmj56")
 button_mask = 3
+flat = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(-48, 26.6667)
 scale = Vector2(2.33333, 2.16667)
-polygon = PackedVector2Array(13.7143, -19.6923, 27.4286, -19.6923, 27.4286, -4.92308, 13.7143, -4.92308)
+polygon = PackedVector2Array(14.1428, -19.2308, 27, -19.2308, 27, -5.38462, 14.1428, -5.38462)
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

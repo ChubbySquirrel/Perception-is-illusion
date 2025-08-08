@@ -62,11 +62,13 @@ func _on_button_button_down() -> void:
 
 func _on_button_button_up() -> void:
 	pressed = false
+	bracer.snap_home(self)
 	pass # Replace with function body.
 
 
-func create (itype:String,iactive:bool,sense:float,iposition:Vector2 ):
+func create (itype:String,iactive:bool,sense:float,iposition:Vector2i ):
 	type = itype
 	active = iactive
 	sense = slide_sense
-	position = iposition
+	bracer_pos = iposition
+	position = bracer.home_position(bracer_pos)

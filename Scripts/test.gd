@@ -6,18 +6,7 @@ var called = false
 
 
 func _ready() -> void:
-	LevelManager.level_grid = grid
-	LevelManager.bracer  = brac
-
-
-
-	
-	LevelManager.initialize_level("res://Resources/test.csv")
-	brac.create_grid(LevelManager.level_grid)
-	grid.tiles[1][1].set_color(Color.ORANGE)
-	grid.tiles[3][5].set_color(Color.BLUE)
-	
-	var children = get_tree().current_scene.get_children()
+	pass
 
 			
 func _process(_delta) -> void:
