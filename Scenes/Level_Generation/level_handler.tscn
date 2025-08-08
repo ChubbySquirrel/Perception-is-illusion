@@ -10,3 +10,5 @@ grid = NodePath("Grid")
 [node name="Grid" type="Node" parent="."]
 script = ExtResource("2_ws83c")
 metadata/_custom_type_script = "uid://bad1ft1luxwbd"
+
+[connection signal="player_reached_goal" from="Grid" to="." method="_on_grid_player_reached_goal"]

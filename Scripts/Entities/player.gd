@@ -4,12 +4,11 @@ extends CharacterBody2D
 
 @export var speed : float = 100
 
+@export var sucess_view : Control
+
 var disabled = false
 
-var game_over
-
-func _ready() -> void:
-	game_over = load("res://Scenes/death_screen.tscn")
+var game_over = preload("res://Scenes/UI/death_screen.tscn")
 
 func _process(_delta: float) -> void:
 	if disabled:
@@ -27,8 +26,12 @@ func _process(_delta: float) -> void:
 	velocity = direction*speed
 	move_and_slide()
 
-func kill():
+func kill()->void:
 	Engine.time_scale = 0
 	disabled = true
 	var go = game_over.instantiate()
 	add_child(go)
+
+func show_success_screen()->void:
+	Engine.time_scale = 0
+	sucess_view.visible = true

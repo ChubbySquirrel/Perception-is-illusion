@@ -8,8 +8,8 @@ func load_csv(file_path : String) -> Array:
 	
 	var data = []
 	while not file.eof_reached():
-		var line : PackedStringArray = file.get_csv_line()
-		var row : Array = Array(line)
+		var line : String = file.get_line()
+		var row : Array = line.split(";")
 		data.append(row)
 	return data
 
@@ -21,7 +21,7 @@ func get_all_level_csv() -> MinBinaryHeap:
 		var file_name = dir.get_next()
 		while file_name != "":
 			if not dir.current_is_dir():
-				if file_name.get_extension() == "csv":
+				if file_name.get_extension() == "lv":
 					var level = get_level_from_filename(file_name.get_basename())
 					files.push(file_name,level)
 			file_name = dir.get_next()

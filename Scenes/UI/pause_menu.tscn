@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmc2c5o77x4fu"]
+[gd_scene load_steps=5 format=3 uid="uid://c7nlgpkgvlnc4"]
 
-[ext_resource type="Script" uid="uid://d4e44jxvdmtc4" path="res://Scripts/UI/death_screen.gd" id="1_30dcm"]
-[ext_resource type="Theme" uid="uid://b5rmpnk3vlw6h" path="res://Resources/Themes/Death_Menu.tres" id="2_68xsb"]
+[ext_resource type="Script" uid="uid://d4e44jxvdmtc4" path="res://Scripts/UI/death_screen.gd" id="1_8rf44"]
+[ext_resource type="Theme" uid="uid://b5rmpnk3vlw6h" path="res://Resources/Themes/Death_Menu.tres" id="2_r2i2h"]
 
 [sub_resource type="Gradient" id="Gradient_6bi5g"]
-offsets = PackedFloat32Array(0, 0.900285, 0.952991)
-colors = PackedColorArray(0, 0, 0, 1, 0.999997, 0.25292, 0.291116, 1, 1, 0.80741, 0.792292, 1)
+offsets = PackedFloat32Array(0, 0.233618, 0.952991)
+colors = PackedColorArray(0, 0, 0, 1, 0.734809, 0.859081, 0.821177, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_y0ggs"]
 gradient = SubResource("Gradient_6bi5g")
@@ -14,7 +14,7 @@ height = 1080
 fill_from = Vector2(0.535385, 0.851852)
 fill_to = Vector2(0.443077, 0)
 
-[node name="DeathScreen" type="Control"]
+[node name="PauseMenu" type="Control"]
 z_index = 1
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
@@ -23,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_30dcm")
+script = ExtResource("1_8rf44")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -59,7 +59,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-text = "[color=#000000]You Died![/color]"
+text = "[color=#000000]Pause[/color]"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
@@ -77,21 +77,31 @@ alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_68xsb")
+theme = ExtResource("2_r2i2h")
 
 [node name="Restart" type="Button" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme = ExtResource("2_68xsb")
+theme = ExtResource("2_r2i2h")
 text = "Restart"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_68xsb")
+theme = ExtResource("2_r2i2h")
 
-[node name="Level_Menu" type="Button" parent="VBoxContainer/MarginContainer2"]
+[node name="level_menu" type="Button" parent="VBoxContainer/MarginContainer2"]
 layout_mode = 2
-theme = ExtResource("2_68xsb")
+theme = ExtResource("2_r2i2h")
 text = "Level Menu"
 
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_r2i2h")
+
+[node name="Resume" type="Button" parent="VBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme = ExtResource("2_r2i2h")
+text = "Resume"
+
 [connection signal="button_down" from="VBoxContainer/MarginContainer/Restart" to="." method="_on_restart_button_down"]
-[connection signal="button_down" from="VBoxContainer/MarginContainer2/Level_Menu" to="." method="_on_main_menu_button_down"]
+[connection signal="button_down" from="VBoxContainer/MarginContainer2/level_menu" to="." method="_on_main_menu_button_down"]
+[connection signal="button_down" from="VBoxContainer/MarginContainer3/Resume" to="." method="_on_resume_button_down"]

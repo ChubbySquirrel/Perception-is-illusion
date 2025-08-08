@@ -30,3 +30,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+offset_right = 45.0
+offset_bottom = 31.0
+text = "Back"
+
+[connection signal="button_down" from="Back" to="." method="_on_back_button_down"]

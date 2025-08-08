@@ -9,15 +9,15 @@ func _ready() -> void:
 
 
 func _on_restart_button_down() -> void:
-	var tree = get_tree()
-	var current_scene = tree.current_scene
-	var new_root = test.instantiate()
-	tree.get_root().add_child(new_root)
-	tree.get_root().remove_child(current_scene)
-	tree.current_scene = new_root
-	Engine.time_scale = 1	
+	Engine.time_scale = 1
+	get_tree().reload_current_scene()
 
 
 func _on_main_menu_button_down() -> void:
 	Engine.time_scale = 1
-	get_tree().change_scene_to_packed(main_menu)
+	get_tree().change_scene_to_file("res://Scenes/UI/levels_view.tscn")
+
+
+func _on_resume_button_down() -> void:
+	Engine.time_scale = 1
+	visible = false
