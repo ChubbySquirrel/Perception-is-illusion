@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw035tk2q5axt"]
+
+[ext_resource type="Script" uid="uid://bad1ft1luxwbd" path="res://Scripts/grid.gd" id="1_lqfj4"]
+[ext_resource type="Script" uid="uid://ccjxt8waioji2" path="res://level_handler.gd" id="1_qhvoi"]
+
+[node name="level_handler" type="Node" node_paths=PackedStringArray("grid")]
+script = ExtResource("1_qhvoi")
+grid = NodePath("Grid")
+
+[node name="Grid" type="Node" parent="."]
+script = ExtResource("1_lqfj4")
+metadata/_custom_type_script = "uid://bad1ft1luxwbd"

@@ -1,8 +1,11 @@
 extends Node
 
 func find_path(start : Tile, target : Tile):
+	if start == null or target == null:
+		return []
 	var minheap = MinBinaryHeap.new()
 	var visited_map : Dictionary[Tile,bool]= {}
+	visited_map.set(start, true)
 	minheap.push([start],start.get_tile_position().distance_to(target.get_tile_position()))
 	while !minheap.is_empty():
 		var closest_array = minheap.pop()
@@ -19,7 +22,7 @@ func find_path(start : Tile, target : Tile):
 				if tile == target:
 					closest_array.append(tile)
 					return closest_array
-				visited_map[tile] = true
+				visited_map.set(tile, true)
 				var new_array = closest_array.duplicate()
 				new_array.append(tile)
 				minheap.push(new_array,tile.get_tile_position().distance_to(target.get_tile_position()))

@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 CsvReader="*res://Scripts/csv_reader.gd"
 TileRules="*res://Scripts/tile_rules.gd"
 AStar="*res://Scripts/a_star.gd"
+LevelManager="*res://level_manager.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [input]
 

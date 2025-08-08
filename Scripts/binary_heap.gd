@@ -28,7 +28,7 @@ func peek():
 
 func _heapify_up(index: int) -> void:
 	while index > 0:
-		var parent = (index - 1) / 2
+		var parent = int((index - 1) / 2)
 		if heap[index]["priority"] < heap[parent]["priority"]:
 			_swap(index, parent)
 			index = parent
@@ -36,15 +36,15 @@ func _heapify_up(index: int) -> void:
 			break
 
 func _heapify_down(index: int) -> void:
-	var size = heap.size()
-	while index < size:
+	var heap_size = heap.size()
+	while index < heap_size:
 		var left = 2 * index + 1
 		var right = 2 * index + 2
 		var smallest = index
 
-		if left < size and heap[left]["priority"] < heap[smallest]["priority"]:
+		if left < heap_size and heap[left]["priority"] < heap[smallest]["priority"]:
 			smallest = left
-		if right < size and heap[right]["priority"] < heap[smallest]["priority"]:
+		if right < heap_size and heap[right]["priority"] < heap[smallest]["priority"]:
 			smallest = right
 
 		if smallest != index:
@@ -57,3 +57,6 @@ func _swap(index1,index2):
 	var temp = heap[index1]
 	heap[index1] = heap[index2]
 	heap[index2] = temp
+
+func peek_priority():
+	return heap[0]["priority"] if not is_empty() else null

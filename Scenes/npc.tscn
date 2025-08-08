@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw52mepe1nthx"]
+
+[ext_resource type="Script" uid="uid://deddl5oth5ir1" path="res://Scripts/npc.gd" id="1_ideak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxcha"]
+size = Vector2(32, 32)
+
+[node name="npc" type="CharacterBody2D"]
+script = ExtResource("1_ideak")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0.69412, 0.694268, 1)
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xxcha")

@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmc2c5o77x4fu"]
+
+[ext_resource type="Script" uid="uid://d4e44jxvdmtc4" path="res://Scripts/death_screen.gd" id="1_rwas2"]
+[ext_resource type="Theme" uid="uid://b5rmpnk3vlw6h" path="res://Resources/Themes/Death_Menu.tres" id="2_tseak"]
+
+[sub_resource type="Gradient" id="Gradient_6bi5g"]
+offsets = PackedFloat32Array(0, 0.900285, 0.952991)
+colors = PackedColorArray(0, 0, 0, 1, 0.999997, 0.25292, 0.291116, 1, 1, 0.80741, 0.792292, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y0ggs"]
+gradient = SubResource("Gradient_6bi5g")
+width = 500
+height = 1080
+fill_from = Vector2(0.535385, 0.851852)
+fill_to = Vector2(0.443077, 0)
+
+[node name="Control" type="Control"]
+z_index = 1
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rwas2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.282407, 0.282407, 0.282407, 0.803922)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_right = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_y0ggs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_tseak")
+
+[node name="Restart" type="Button" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_tseak")
+text = "Restart"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_tseak")
+
+[node name="Main_Menu" type="Button" parent="VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme = ExtResource("2_tseak")
+text = "Main Menu"
+
+[connection signal="button_down" from="VBoxContainer/MarginContainer/Restart" to="." method="_on_restart_button_down"]
+[connection signal="button_down" from="VBoxContainer/MarginContainer2/Main_Menu" to="." method="_on_main_menu_button_down"]
