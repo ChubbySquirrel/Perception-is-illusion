@@ -36,6 +36,7 @@ func initialize_level(file_path : String) -> void:
 					new_stone.create(type,true,1,Vector2.ZERO)
 					bracer.stones[type] = new_stone
 					new_stone.bracer = bracer
+					new_stone.bracer_pos = Vector2i(i,j)
 					bracer.add_child(new_stone)
 					print(bracer.tile_size)
 					new_stone.global_position = (bracer.global_position + bracer.tile_size*Vector2(i,j))

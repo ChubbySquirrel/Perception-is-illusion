@@ -14,7 +14,6 @@ signal is_moved
 
 var bracer: Bracer
 
-
 @export var type: String
 
 func _ready() -> void:
@@ -71,11 +70,3 @@ func create (itype:String,iactive:bool,sense:float,iposition:Vector2 ):
 	active = iactive
 	sense = slide_sense
 	position = iposition
-
-#calculates home position of stone
-func home_position() -> Vector2:
-	var home_position = bracer.global_position + bracer.tile_size*(bracer_pos as Vector2)
-	return home_position
-		
-func snap_home():
-	position = home_position()
