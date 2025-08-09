@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bslg7fepmqv5m"]
+[gd_scene load_steps=4 format=3 uid="uid://bslg7fepmqv5m"]
 
-[ext_resource type="Script" uid="uid://c30mchwt5uk1g" path="res://Scripts/test.gd" id="1_8od7v"]
-[ext_resource type="Script" uid="uid://bad1ft1luxwbd" path="res://Scripts/Level_Generation/grid.gd" id="2_qc4db"]
-[ext_resource type="PackedScene" uid="uid://cw52mepe1nthx" path="res://Scenes/Entities/npc.tscn" id="3_qc4db"]
-[ext_resource type="PackedScene" uid="uid://iai6cc2gkejj" path="res://Scenes/Entities/enemy.tscn" id="3_ys1qc"]
+[ext_resource type="Script" uid="uid://brehtxryrqgqy" path="res://Scripts/test.gd" id="1_8od7v"]
+[ext_resource type="Script" uid="uid://bxddx3x6goios" path="res://Scripts/grid.gd" id="2_qc4db"]
+[ext_resource type="PackedScene" uid="uid://dcjax1tgha50o" path="res://Scenes/Bracer.tscn" id="3_qc4db"]
 
 [node name="Test" type="Node" node_paths=PackedStringArray("npc", "enemy")]
 script = ExtResource("1_8od7v")
@@ -19,3 +18,6 @@ position = Vector2(640, 640)
 
 [node name="npc" parent="." instance=ExtResource("3_qc4db")]
 position = Vector2(664, 288)
+
+[node name="Bracer" parent="." instance=ExtResource("3_qc4db")]
+z_index = 5

@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://csoiqpaw0pkvv"
+
+[deps]
+
+files=["res://Resources/test.w.translation", "res://Resources/test.w.translation", "res://Resources/test.w.translation", "res://Resources/test.w.translation", "res://Resources/test.w.translation", "res://Resources/test.w.translation"]
+
+source_file="res://Resources/test.csv"
+dest_files=["res://Resources/test.w.translation", "res://Resources/test.w.translation", "res://Resources/test.w.translation", "res://Resources/test.w.translation", "res://Resources/test.w.translation", "res://Resources/test.w.translation"]
+
+[params]
+
+compress=true
+delimiter=0

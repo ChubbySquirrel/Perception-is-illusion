@@ -1,8 +1,8 @@
 extends Node
 
 var tile_type_map : Dictionary[String,Tile.TileTypes] = {
-	"x" : Tile.TileTypes.WALL,
-	"o" : Tile.TileTypes.PATH,
+	"w" : Tile.TileTypes.WALL,
+	"p" : Tile.TileTypes.PATH,
 	"d" : Tile.TileTypes.DOOR,
 	"h" : Tile.TileTypes.HIDDENPATH,
 	"s" : Tile.TileTypes.PATH,
