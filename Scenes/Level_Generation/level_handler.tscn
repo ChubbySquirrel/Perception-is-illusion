@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dw035tk2q5axt"]
 
-[ext_resource type="Script" uid="uid://ccjxt8waioji2" path="res://Scripts/Level_Generation/level_handler.gd" id="1_xogbl"]
-[ext_resource type="Script" uid="uid://bad1ft1luxwbd" path="res://Scripts/Level_Generation/grid.gd" id="2_ws83c"]
+[ext_resource type="Script" uid="uid://c2g5xm8k8e0vc" path="res://Scripts/Level_Generation/level_handler.gd" id="1_xogbl"]
+[ext_resource type="Script" uid="uid://botoni6s141qf" path="res://Scripts/Level_Generation/grid.gd" id="2_ws83c"]
 
 [node name="level_handler" type="Node" node_paths=PackedStringArray("grid")]
 script = ExtResource("1_xogbl")
@@ -9,6 +9,5 @@ grid = NodePath("Grid")
 
 [node name="Grid" type="Node" parent="."]
 script = ExtResource("2_ws83c")
-metadata/_custom_type_script = "uid://bad1ft1luxwbd"
 
 [connection signal="player_reached_goal" from="Grid" to="." method="_on_grid_player_reached_goal"]

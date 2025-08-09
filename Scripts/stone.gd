@@ -28,7 +28,6 @@ func _process(delta: float) -> void:
 	
 	var release_rotate = Input.is_action_just_released("Rotate")
 	var start_rotate = Input.is_action_just_pressed("Rotate")
-	print(t)
 	if active:
 		if release_rotate:
 			pressed = false
