@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cifalne7y7gvx"]
+[gd_scene load_steps=14 format=3 uid="uid://cifalne7y7gvx"]
 
 [ext_resource type="Script" uid="uid://c3cfqjbsu3lt1" path="res://Scripts/stone.gd" id="1_177fh"]
+[ext_resource type="Texture2D" uid="uid://7e4nk2rodxkd" path="res://icon.svg" id="2_6slwf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m3q8e"]
 
@@ -56,6 +57,10 @@ flat = true
 position = Vector2(-48, 26.6667)
 scale = Vector2(2.33333, 2.16667)
 polygon = PackedVector2Array(14.1428, -19.2308, 27, -19.2308, 27, -5.38462, 14.1428, -5.38462)
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("2_6slwf")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

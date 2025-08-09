@@ -12,6 +12,9 @@ var tile_size = 32
 var grid_lines = preload("res://Bracer_Grid_line.tscn")
 var stone_scene = preload("res://Scenes/Stone.tscn")
 
+#time to determine how long for stones to snap
+var snap_time = 100
+
 @export var grid_size = 5
 #1/scale gets us the ratio of tiles in bracer vs labrinth
 var bracer_scale:int  = 1
@@ -36,10 +39,11 @@ func spawn_stones():
 		new_stone1.bracer = self
 		new_stone1.create(type,true,1,grid_pos)
 		stone_grid[grid_pos.x][grid_pos.y] = new_stone1
+		new_stone1.moved_to = home_position(grid_pos)
+		new_stone1.initial_rot = 0
 	
-func check_moved(stone:Stone) -> bool:
+func check_moved(stone:Stone):
 	#If the tile has moved sufficently in a direction
-	print(stone.position)
 	var rel_position = stone.position - home_position(stone.bracer_pos)
 
 	var grid_change = (rel_position/tile_size).round()
@@ -58,11 +62,33 @@ func check_moved(stone:Stone) -> bool:
 			stone_grid[new_grid_pos.x][new_grid_pos.y] = stone
 			stone_grid[old_grid_pos.x][old_grid_pos.y] = null
 			
-		stone.pressed = false
-		snap_home(stone)
-		return true
+			stone.pressed = false
+			stone.moved_to = home_position(new_grid_pos)
+		return 
 	else:
-		return false
+		return
+
+func check_rotate(stone:Stone):
+	var rel_rotation = stone.rotation - stone.initial_rot
+	if abs(rel_rotation) >= PI/3:
+		var rotate_change
+		if rel_rotation > 0:
+			rotate_change = PI/2	
+		elif rel_rotation < 0:
+			rotate_change = -PI/2
+		stone.initial_rot += rotate_change
+
+		stone.pressed = false
+		
+		print("test")
+
+		
+
+func snap_rotate(stone:Stone):
+	stone.rotation = stone.initial_rot
+	
+
+	
 
 #Maps a grid location back to the opposite side (touruous topology)
 func handle_edges(grid_pos:Vector2i) -> Vector2i:
@@ -92,8 +118,9 @@ func home_position(grid_location: Vector2i) -> Vector2:
 	var home_position = global_position + tile_size*(grid_location as Vector2)
 	return home_position
 		
-func snap_home(stone:Stone):
+func snap_position_home(stone:Stone):
 	stone.position = home_position(stone.bracer_pos)
+
 
 
 	

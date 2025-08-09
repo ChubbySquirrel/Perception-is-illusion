@@ -10,7 +10,12 @@ var initial_pos_on_click: Vector2
 var initial_rot: float
 var initial_pos: Vector2
 var bracer_pos: Vector2i
-signal is_moved
+
+
+var moved_to: Vector2
+
+var t:float = 0
+
 
 var bracer: Bracer
 
@@ -20,20 +25,20 @@ func _ready() -> void:
 	initial_pos = position
 
 func _process(delta: float) -> void:
-	rotating = Input.is_action_pressed("Rotate")
+	
 	var release_rotate = Input.is_action_just_released("Rotate")
 	var start_rotate = Input.is_action_just_pressed("Rotate")
-	
+	print(t)
 	if active:
+		if release_rotate:
+			pressed = false
 		if pressed:
+			t = 0
+			rotating = Input.is_action_pressed("Rotate")
+
 			if start_rotate:
-				initial_rot = rotation
 				initial_mouse_pos = get_global_mouse_position()
-			if release_rotate:
-				initial_mouse_pos = get_global_mouse_position()
-				initial_pos_on_click = position
-				initial_rot = rotation
-				
+			
 			
 			
 			var current_mouse_pos = get_global_mouse_position()
@@ -46,7 +51,19 @@ func _process(delta: float) -> void:
 			else:
 				rotation = initial_rot + atan2(rel_initial_mouse_pos.x,rel_initial_mouse_pos.y) - atan2(rel_current_mouse_pos.x,rel_current_mouse_pos.y)
 			bracer.check_moved(self)
-	
+			bracer.check_rotate(self)
+		
+			
+		else:
+			if t >1:
+				t = 0
+			position = position.lerp(moved_to,t)
+			rotation = lerp_angle(rotation,initial_rot,t)
+			t += delta
+			
+			
+			
+		
 	
 
 func _on_button_button_down() -> void:
@@ -55,14 +72,12 @@ func _on_button_button_down() -> void:
 	#Get current state and save it
 	initial_mouse_pos = get_global_mouse_position()
 	initial_pos_on_click = position
-	initial_rot = rotation
 	
 	pass # Replace with function body.
 
 
 func _on_button_button_up() -> void:
 	pressed = false
-	bracer.snap_home(self)
 	pass # Replace with function body.
 
 
