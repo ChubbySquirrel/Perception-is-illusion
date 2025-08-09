@@ -17,10 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-CsvReader="*res://Scripts/csv_reader.gd"
-TileRules="*res://Scripts/tile_rules.gd"
-AStar="*res://Scripts/a_star.gd"
-LevelManager="*res://Scripts/level_manager.gd"
+CsvReader="*res://Scripts/Utilities/csv_reader.gd"
+TileRules="*res://Scripts/Utilities/tile_rules.gd"
+AStar="*res://Scripts/Utilities/a_star.gd"
+LevelManager="*res://Scripts/Utilities/level_manager.gd"
 
 [display]
 

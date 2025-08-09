@@ -4,11 +4,20 @@
 [ext_resource type="Script" uid="uid://bxddx3x6goios" path="res://Scripts/grid.gd" id="2_qc4db"]
 [ext_resource type="PackedScene" uid="uid://dcjax1tgha50o" path="res://Scenes/Bracer.tscn" id="3_qc4db"]
 
-[node name="Test" type="Node"]
+[node name="Test" type="Node" node_paths=PackedStringArray("npc", "enemy")]
 script = ExtResource("1_8od7v")
+npc = NodePath("npc")
+enemy = NodePath("Enemy")
 
 [node name="Grid" type="Node" parent="."]
 script = ExtResource("2_qc4db")
+metadata/_custom_type_script = "uid://bad1ft1luxwbd"
+
+[node name="Enemy" parent="." instance=ExtResource("3_ys1qc")]
+position = Vector2(640, 640)
+
+[node name="npc" parent="." instance=ExtResource("3_qc4db")]
+position = Vector2(664, 288)
 
 [node name="Bracer" parent="." instance=ExtResource("3_qc4db")]
 z_index = 5

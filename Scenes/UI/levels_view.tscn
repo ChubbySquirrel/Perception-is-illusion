@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://o0odf3xtnn64"]
+
+[ext_resource type="Script" uid="uid://dkwwk5hdf7h1d" path="res://Scripts/UI/levels_view.gd" id="1_ja7af"]
+
+[node name="Levels" type="Control" node_paths=PackedStringArray("grid")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ja7af")
+grid = NodePath("ScrollContainer/CenterContainer/GridContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+offset_right = 45.0
+offset_bottom = 31.0
+text = "Back"
+
+[connection signal="button_down" from="Back" to="." method="_on_back_button_down"]

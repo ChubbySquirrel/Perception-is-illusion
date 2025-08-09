@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cc4ucu740q5tf"]
+
+[node name="Tile" type="StaticBody2D"]
+
+[node name="Overall_Appearance" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(64, -64, 64, 64, -64, 64, -64, -64)
+uv = PackedVector2Array(128, 0, 128, 128, 0, 128, 0, 0)
+
+[node name="Debug_Text" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "I: J: "
+
+[node name="Top_Wall" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, -64, -48, -48, 48, -48, 64, -64)
+disabled = true
+
+[node name="Left_Wall" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, -64, -48, -48, -48, 48, -64, 64)
+disabled = true
+
+[node name="Bottom_Wall" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, 64, 64, 64, 48, 48, -48, 48)
+disabled = true
+
+[node name="Right_Wall" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(64, -64, 48, -48, 48, 48, 64, 64)
+disabled = true
+
+[node name="Top_Wall_Appearance" type="Polygon2D" parent="."]
+visible = false
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-64, -64, -48, -48, 48, -48, 64, -64)
+
+[node name="Left_Wall_Appearance" type="Polygon2D" parent="."]
+visible = false
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-64, -64, -48, -48, -48, 48, -64, 64)
+
+[node name="Bottom_Wall_Appearance" type="Polygon2D" parent="."]
+visible = false
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-64, 64, 64, 64, 48, 48, -48, 48)
+
+[node name="Right_Wall_Appearance" type="Polygon2D" parent="."]
+visible = false
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(64, -64, 64, 64, 48, 48, 48, -48)
