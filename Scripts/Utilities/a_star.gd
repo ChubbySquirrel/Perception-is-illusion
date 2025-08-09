@@ -16,7 +16,7 @@ func find_path(start : Tile, target : Tile):
 				continue
 			if visited_map.has(tile):
 				continue
-			elif tile.blocked:
+			elif not closest_tile.traversable(tile):
 				continue
 			else:
 				if tile == target:
@@ -26,5 +26,5 @@ func find_path(start : Tile, target : Tile):
 				var new_array = closest_array.duplicate()
 				new_array.append(tile)
 				minheap.push(new_array,tile.get_tile_position().distance_to(target.get_tile_position()))
-				
+	
 	return []

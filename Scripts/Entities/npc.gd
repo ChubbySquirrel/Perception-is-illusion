@@ -22,7 +22,8 @@ func _process(_delta: float) -> void:
 			return
 		Behaviours.FOLLOW:
 			var target : Vector2 = path[current_index].get_tile_position()
-			if position.distance_to(target) < 1:
+			var distance = position.distance_to(target)
+			if  distance < 10:
 				if current_index == path.size()-1:
 					state = Behaviours.IDLE
 				else:

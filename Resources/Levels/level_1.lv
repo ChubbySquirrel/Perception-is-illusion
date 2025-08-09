@@ -1,6 +1,6 @@
 {"type":"x"};{"type":"x"};{"type":"x"};{"type":"x"};{"type":"x"};{"type":"x"}
 {"type":"x"};{"type":"o"};{"type":"s"};{"type":"o"};{"type":"o"};{"type":"x"}
 {"type":"x"};{"type":"o"};{"type":"o"};{"type":"o"};{"type":"o"};{"type":"x"}
-{"type":"x"};{"type":"x"};{"type":"o","walls":6};{"type":"x"};{"type":"o"};{"type":"x"}
-{"type":"x"};{"type":"x"};{"type":"g"};{"type":"x"};{"type":"o"};{"type":"x"}
+{"type":"x"};{"type":"h"};{"type":"x"};{"type":"x"};{"type":"o"};{"type":"x"}
+{"type":"x"};{"type":"h"};{"type":"g"};{"type":"x"};{"type":"o","enemy":true};{"type":"x"}
 {"type":"x"};{"type":"x"};{"type":"x"};{"type":"x"};{"type":"x"};{"type":"x"}

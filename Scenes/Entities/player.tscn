@@ -1,18 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxnwu5mg4clyw"]
+[gd_scene load_steps=7 format=3 uid="uid://dxnwu5mg4clyw"]
 
 [ext_resource type="Script" uid="uid://hi5ahcx1mycd" path="res://Scripts/Entities/player.gd" id="1_blnjl"]
 [ext_resource type="PackedScene" uid="uid://c7nlgpkgvlnc4" path="res://Scenes/UI/pause_menu.tscn" id="2_nqm6o"]
 [ext_resource type="Script" uid="uid://duto0aclv4u01" path="res://Scripts/UI/player_ui.gd" id="2_qbyki"]
 [ext_resource type="PackedScene" uid="uid://cd12x6je2vf0o" path="res://Scenes/UI/sucess_screen.tscn" id="4_svftf"]
+[ext_resource type="PackedScene" uid="uid://cmc2c5o77x4fu" path="res://Scenes/UI/death_screen.tscn" id="5_a1rq5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
 size = Vector2(32, 32)
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("sucess_view") groups=["Player"]]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("sucess_view", "go") groups=["Player"]]
 z_index = 1
 motion_mode = 1
 script = ExtResource("1_blnjl")
 sucess_view = NodePath("Camera2D/Control/SucessScreen")
+go = NodePath("Camera2D/Control/DeathScreen")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -100,6 +102,10 @@ visible = false
 layout_mode = 1
 
 [node name="SucessScreen" parent="Camera2D/Control" instance=ExtResource("4_svftf")]
+visible = false
+layout_mode = 1
+
+[node name="DeathScreen" parent="Camera2D/Control" instance=ExtResource("5_a1rq5")]
 visible = false
 layout_mode = 1
 

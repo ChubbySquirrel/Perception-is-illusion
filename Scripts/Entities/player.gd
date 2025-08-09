@@ -6,9 +6,9 @@ extends CharacterBody2D
 
 @export var sucess_view : Control
 
-var disabled = false
+@export var go : Control
 
-var game_over = preload("res://Scenes/UI/death_screen.tscn")
+var disabled = false
 
 func _process(_delta: float) -> void:
 	if disabled:
@@ -29,8 +29,7 @@ func _process(_delta: float) -> void:
 func kill()->void:
 	Engine.time_scale = 0
 	disabled = true
-	var go = game_over.instantiate()
-	add_child(go)
+	go.visible = true
 
 func show_success_screen()->void:
 	Engine.time_scale = 0

@@ -2,13 +2,28 @@ class_name Enemy
 
 extends NPC
 
+var activate_on_ready = false
+var activated = false
+var player_tile
+
 func activate() -> void:
+	activated = true
 	var t = grid.get_player_tile()
 	go_to(t)
 
 var player_eliminated = false
 
+func  _ready() -> void:
+	if activate_on_ready:
+		activate()
+
 func _physics_process(_delta: float) -> void:
+	
+	var t = grid.get_player_tile()
+	if player_tile != t:
+		go_to(t)
+		player_tile = t
+	
 	if player_eliminated:
 		return
 
