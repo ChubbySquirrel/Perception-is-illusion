@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://o0odf3xtnn64"]
 
-[ext_resource type="Script" uid="uid://dkwwk5hdf7h1d" path="res://Scripts/UI/levels_view.gd" id="1_ja7af"]
+[ext_resource type="Script" uid="uid://bop4shg5ox18t" path="res://Scripts/UI/levels_view.gd" id="1_ja7af"]
 
 [node name="Levels" type="Control" node_paths=PackedStringArray("grid")]
 layout_mode = 3

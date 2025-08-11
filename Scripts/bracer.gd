@@ -20,7 +20,7 @@ var snap_time = 100
 var bracer_scale:int  = 1
 
 func _ready() -> void:
-	create_grid(LevelManager.level_grid)
+	create_grid()
 	spawn_stones()
 	
 
@@ -47,6 +47,7 @@ func check_moved(stone:Stone):
 	var rel_position = stone.position - home_position(stone.bracer_pos)
 
 	var grid_change = (rel_position/tile_size).round()
+	grid_change = Vector2(clampf(grid_change.x,-1,1),clampf(grid_change.y,-1,1))
 	grid_change = grid_change as Vector2i
 	#If there is a change
 	if grid_change.length() >= 1:
@@ -96,7 +97,7 @@ func handle_edges(grid_pos:Vector2i) -> Vector2i:
 	
 	
 #creates empty bracer grid based off of labrinth grid
-func create_grid(grid:Grid):
+func create_grid():
 	stone_grid = []
 	for row_index in grid_size:
 		var row = []
@@ -110,12 +111,12 @@ func draw_grid():
 	for i in stone_grid.size():
 		for j in stone_grid[0].size():
 			var grid_line = grid_lines.instantiate()
-			grid_line.global_position = home_position(Vector2i(i,j))
+			grid_line.position = home_position(Vector2i(i,j))
 			add_child(grid_line)
 	
 #calculates home position of stone
 func home_position(grid_location: Vector2i) -> Vector2:
-	var home_position = global_position + tile_size*(grid_location as Vector2)
+	var home_position = position + tile_size*(grid_location as Vector2)
 	return home_position
 		
 func snap_position_home(stone:Stone):

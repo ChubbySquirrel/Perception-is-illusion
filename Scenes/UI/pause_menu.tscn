@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7nlgpkgvlnc4"]
 
-[ext_resource type="Script" uid="uid://d4e44jxvdmtc4" path="res://Scripts/UI/death_screen.gd" id="1_8rf44"]
+[ext_resource type="Script" uid="uid://cqcc15ksx26tp" path="res://Scripts/UI/death_screen.gd" id="1_8rf44"]
 [ext_resource type="Theme" uid="uid://b5rmpnk3vlw6h" path="res://Resources/Themes/Death_Menu.tres" id="2_r2i2h"]
 
 [sub_resource type="Gradient" id="Gradient_6bi5g"]
