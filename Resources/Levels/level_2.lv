@@ -1,6 +1,11 @@
-{"type":"x"};{"type":"x"};{"type":"x"};{"type":"x"};{"type":"x"};{"type":"x"}
-{"type":"x"};{"type":"o"};{"type":"s"};{"type":"o"};{"type":"o"};{"type":"x"}
-{"type":"x"};{"type":"o"};{"type":"o"};{"type":"o"};{"type":"o"};{"type":"x"}
-{"type":"x"};{"type":"x"};{"type":"o","walls":6};{"type":"x"};{"type":"o"};{"type":"x"}
-{"type":"x"};{"type":"x"};{"type":"g"};{"type":"x"};{"type":"o"};{"type":"x"}
-{"type":"x"};{"type":"x"};{"type":"x"};{"type":"x"};{"type":"x"};{"type":"x"}
+{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
+{"type":"w"};{"type":"p","stone": {"group": "B","pivot": true}};{"type":"s"};{"type":"p"};{"type":"p"};{"type":"w"}
+{"type":"w"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"w"}
+{"type":"w"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"w"}
+{"type":"w"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"w"}
+{"type":"w"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"w"}
+{"type":"w"};{"type":"p","stone": {"group": "A","pivot": true}};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"w"}
+{"type":"w"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"w"}
+{"type":"w"};{"type":"p"};{"type":"p"};{"type":"p","stone": {"group": "A"}};{"type":"p"};{"type":"w"}
+{"type":"w"};{"type":"p"};{"type":"g"};{"type":"p"};{"type":"p"};{"type":"w"}
+{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}

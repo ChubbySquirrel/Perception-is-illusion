@@ -15,33 +15,25 @@ var stone_scene = preload("res://Scenes/Stone.tscn")
 #time to determine how long for stones to snap
 var snap_time = 100
 
+@export var player : Player
+
 @export var grid_size = 5
 #1/scale gets us the ratio of tiles in bracer vs labrinth
 var bracer_scale:int  = 1
 
 func _ready() -> void:
 	create_grid()
-	spawn_stones()
-	
+	#spawn_stones()	
 
-	pass
-	
-	
-func spawn_stones():
+func create_stone(g : String, p : Vector2i):
+	var new_stone = stone_scene.instantiate()
+	add_child(new_stone)
+	new_stone.bracer = self
+	new_stone.create(g,true,1,p)
+	stone_grid[p.x][p.y] = new_stone
+	new_stone.moved_to = home_position(p)
+	new_stone.initial_rot = 0
 
-	var initialize_arr = [["A",Vector2i(1,1)],["B",Vector2i(4,1)],["C",Vector2i(1,4)],["D",Vector2i(4,4)]]
-			
-	for data in initialize_arr:
-		var grid_pos = data[1]
-		var type = data[0]
-		var new_stone1 = stone_scene.instantiate()
-		add_child(new_stone1)
-		new_stone1.bracer = self
-		new_stone1.create(type,true,1,grid_pos)
-		stone_grid[grid_pos.x][grid_pos.y] = new_stone1
-		new_stone1.moved_to = home_position(grid_pos)
-		new_stone1.initial_rot = 0
-	
 func check_moved(stone:Stone):
 	#If the tile has moved sufficently in a direction
 	var rel_position = stone.position - home_position(stone.bracer_pos)
@@ -55,7 +47,10 @@ func check_moved(stone:Stone):
 		var new_grid_pos = stone.bracer_pos + grid_change
 		new_grid_pos = handle_edges(new_grid_pos)
 		if stone_grid[new_grid_pos.x][new_grid_pos.y] == null:
+			if not player.check_stone_move(stone.type,grid_change):
+				return
 			stone.bracer_pos += grid_change
+			player.stone_move(stone.type,grid_change)
 			#Handle wrapping around
 			stone.bracer_pos = handle_edges(stone.bracer_pos)
 			
@@ -74,14 +69,20 @@ func check_rotate(stone:Stone):
 	if abs(rel_rotation) >= PI/3:
 		var rotate_change
 		if rel_rotation > 0:
+			if not player.check_stone_rotate(stone.type, Vector2.RIGHT):
+				stone.pressed = false
+				return
 			rotate_change = PI/2	
+			player.stone_rotate(stone.type, Vector2.RIGHT)
 		elif rel_rotation < 0:
+			if not player.check_stone_rotate(stone.type, Vector2.LEFT):
+				stone.pressed = false
+				return
 			rotate_change = -PI/2
+			player.stone_rotate(stone.type, Vector2.LEFT)
 		stone.initial_rot += rotate_change
 
 		stone.pressed = false
-		
-		print("test")
 
 		
 

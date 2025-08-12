@@ -23,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_8rf44")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -32,6 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0.282407, 0.282407, 0.282407, 0.803922)
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -57,6 +59,7 @@ offset_left = -50.0
 offset_right = 50.0
 offset_bottom = 23.0
 grow_horizontal = 2
+mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "[color=#000000]Pause[/color]"

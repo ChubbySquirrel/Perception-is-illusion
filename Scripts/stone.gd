@@ -16,10 +16,9 @@ var moved_to: Vector2
 
 var t:float = 0
 
-
 var bracer: Bracer
 
-@export var type: String
+var type: String
 
 func _ready() -> void:
 	initial_pos = position
@@ -28,7 +27,6 @@ func _process(delta: float) -> void:
 	
 	var release_rotate = Input.is_action_just_released("Rotate")
 	var start_rotate = Input.is_action_just_pressed("Rotate")
-	print(t)
 	if active:
 		if release_rotate:
 			pressed = false

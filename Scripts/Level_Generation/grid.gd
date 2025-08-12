@@ -16,6 +16,8 @@ var tile_size : int = 128
 
 var player_position = Tile
 
+var stone_manager : StoneGroupManager
+
 signal player_reached_goal
 
 func _physics_process(_delta: float) -> void:
@@ -38,6 +40,7 @@ func make_grid_from_file(file_path : String) -> void:
 			new_row.append(new_tile)
 		i += 1
 		grid_elements.append(new_row)
+	player.make_stones(stone_manager.groups.keys())
 
 func create_tile(tile_data,i,j,new_row)->Tile:
 	var type_identifier = tile_data.type
@@ -63,8 +66,11 @@ func entity_check(tile_data,i,j) -> void:
 	if tile_data.type == "s" and not found_start:
 		player = player_scene.instantiate()
 		add_child(player)
+		player.grid = self
 		player.position = Vector2(j*tile_size,i*tile_size)
 		found_start = true
+	if "stone" in tile_data and tile_data.type == "p":
+		make_stone(tile_data.stone,i,j)
 	if "enemy" in tile_data:
 		if tile_data.enemy:
 			var new_enemy : Enemy = enemy_scene.instantiate()
@@ -72,6 +78,9 @@ func entity_check(tile_data,i,j) -> void:
 			new_enemy.position = Vector2(j*tile_size,i*tile_size)
 			new_enemy.grid = self
 			new_enemy.activate_on_ready = true
+
+func make_stone(tile_data : Variant, i : int, j : int) -> void:
+	stone_manager.add_stone(tile_data,Vector2i(i,j))
 
 func get_tile_from_position(p : Vector2) -> Tile:
 	var i = roundi(p.y / tile_size)
@@ -89,3 +98,20 @@ func get_player_tile() -> Tile:
 	if player_position == null:
 		player_position = _get_player_tile()
 	return player_position
+
+func get_tile_open(p : Vector2i) -> bool:
+	if p.x < 0 or p.y < 0:
+		return false
+	if p.x > grid_elements.size()-1:
+		return false
+	else:
+		var row = grid_elements[p.x]
+		if p.y > grid_elements.size()-1:
+			return false
+		else:
+			var tile = row[p.y]
+			if tile.type == Tile.TileTypes.PATH:
+				return true
+			else:
+				return false
+			
