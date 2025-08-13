@@ -60,6 +60,7 @@ func create_tile(tile_data,i,j,new_row)->Tile:
 	new_tile.i = i
 	new_tile.j = j
 	add_child(new_tile)
+	new_tile.grid = self
 	new_tile.set_tile_position(Vector2(j*128,i*128))
 	new_tile.set_text("I:"+str(i)+"J:"+str(j))
 	return new_tile
@@ -81,6 +82,7 @@ func entity_check(tile_data,i,j) -> void:
 			new_enemy.position = Vector2(j*tile_size,i*tile_size)
 			new_enemy.grid = self
 			new_enemy.activate_on_ready = true
+			stone_manager.map_updated.connect(new_enemy.on_map_updated)
 
 func make_stone(tile_data : Variant, i : int, j : int) -> void:
 	stone_manager.add_stone(tile_data,Vector2i(i,j))

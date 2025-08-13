@@ -2,6 +2,8 @@ class_name StoneGroupManager
 
 extends Node
 
+signal map_updated
+
 var groups : Dictionary[String,StoneGroup] = {}
 
 var grid : Grid
@@ -72,6 +74,7 @@ func check_stone_move(g : String, mov : Vector2i) -> bool:
 func stone_move(g : String, mov : Vector2i) -> void:
 	var group = groups[g]
 	group.move(Vector2(mov.x,mov.y))
+	map_updated.emit()
 
 func check_stone_rotate(g : String, dir : Vector2) -> bool:
 	var group = groups[g]
@@ -80,6 +83,7 @@ func check_stone_rotate(g : String, dir : Vector2) -> bool:
 func stone_rotate(g : String, dir : Vector2) -> void:
 	var group = groups[g]
 	group.rotate(dir)
+	map_updated.emit()
 
 func change_position(before : Vector2i, after : Vector2i) -> bool:
 	if stone_locations.has(before.x):

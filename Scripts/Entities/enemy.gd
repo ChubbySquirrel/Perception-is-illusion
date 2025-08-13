@@ -5,27 +5,33 @@ extends NPC
 var activate_on_ready = false
 var activated = false
 var player_tile
+var player_eliminated = false
+
+@export var shape_cast : ShapeCast2D
 
 func activate() -> void:
 	activated = true
 	var t = grid.get_player_tile()
 	go_to(t)
 
-var player_eliminated = false
-
 func  _ready() -> void:
 	if activate_on_ready:
 		activate()
 
+func on_map_updated() -> void:
+	player_tile = grid.get_player_tile()
+	go_to(player_tile)
+
 func _physics_process(_delta: float) -> void:
-	
+	if player_eliminated:
+		return
+
 	var t = grid.get_player_tile()
 	if player_tile != t:
 		go_to(t)
 		player_tile = t
 	
-	if player_eliminated:
-		return
+
 
 	var previous_collision = get_last_slide_collision()
 	
@@ -37,13 +43,18 @@ func _physics_process(_delta: float) -> void:
 			player_eliminated = true
 			return
 	
-	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(position,grid.player.position)
-	var result = space_state.intersect_ray(query)
-	if result:
-		if result.collider.is_in_group("Player"):
-			state = Behaviours.BEELINE
-			beeline_target = grid.player
-	else:
-		state = Behaviours.FOLLOW
-		go_to(grid.get_player_tile())
+	shape_cast.target_position = grid.player.global_position - shape_cast.global_position
+	shape_cast.force_shapecast_update()
+	if shape_cast.is_colliding():
+		var result = shape_cast.get_collider(0)
+		if result:
+			if result.is_in_group("Player"):
+				state = Behaviours.BEELINE
+				beeline_target = grid.player
+	
+	if state == Behaviours.FOLLOW:
+		if current_index <= path.size()-2:
+			shape_cast.target_position = path[current_index + 1].get_tile_global_position() - global_position
+			shape_cast.force_shapecast_update()
+			if not shape_cast.is_colliding():
+				current_index += 1

@@ -31,6 +31,8 @@ var walls : int = -1
 var i = -1
 var j = -1
 
+var grid : Grid
+
 var tile_above : Tile
 var tile_below : Tile
 var tile_right : Tile
@@ -64,6 +66,9 @@ func set_tile_position(p : Vector2) -> void:
 
 func get_tile_position() -> Vector2:
 	return tile.position
+
+func get_tile_global_position() -> Vector2:
+	return tile.global_position
 
 func set_color(c : Color) -> void:
 	tile.get_child(0).color = c
@@ -113,6 +118,8 @@ func get_wall_set(dir : Vector2) -> bool:
 	return false
 
 func traversable(to : Tile)->bool:
+	if grid.stone_manager.location_occupied(Vector2i(to.i,to.j)):
+		return false
 	var adjacency_direction = get_tile_adjacent(to)
 	match adjacency_direction:
 		Vector2.ZERO:
