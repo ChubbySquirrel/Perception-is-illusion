@@ -17,6 +17,8 @@ var grid : Grid
 var moving: directions
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 	
 enum directions{
@@ -44,24 +46,25 @@ func _process(_delta: float) -> void:
 		direction += Vector2.RIGHT
 		
 	direction = direction.normalized()
-	
-	if direction.x == 0:
-		if direction.y == 0:
-			play_idle()
-		elif direction.y <0:
-			moving = directions.UP
-			animated_sprite_2d.play("walk_up")
-		elif direction.y >0:
-			moving = directions.DOWN
-			animated_sprite_2d.play("walk_down")
-	elif direction.x > 0:
-		moving = directions.RIGHT
-		animated_sprite_2d.play("walk_right")
-		animated_sprite_2d.flip_h = false
-	elif direction.x < 0:
-		moving = directions.LEFT
-		animated_sprite_2d.play("walk_right")
-		animated_sprite_2d.flip_h = true
+	if direction == Vector2.ZERO:
+		play_idle()
+	else:
+		animation_player.play("walk_noise")
+		if direction.x == 0:
+			if direction.y <0:
+				moving = directions.UP
+				animated_sprite_2d.play("walk_up")
+			elif direction.y >0:
+				moving = directions.DOWN
+				animated_sprite_2d.play("walk_down")
+		elif direction.x > 0:
+			moving = directions.RIGHT
+			animated_sprite_2d.play("walk_right")
+			animated_sprite_2d.flip_h = false
+		elif direction.x < 0:
+			moving = directions.LEFT
+			animated_sprite_2d.play("walk_right")
+			animated_sprite_2d.flip_h = true
 
 		
 	velocity = direction*speed
@@ -69,6 +72,7 @@ func _process(_delta: float) -> void:
 
 	move_and_slide()
 
+#play idle animation based on most recent direction state
 func play_idle():
 	match moving:
 			directions.DOWN:
@@ -81,7 +85,7 @@ func play_idle():
 
 func kill()->void:
 	disabled = true
-	$AnimationPlayer.play("Death")
+	animation_player.play("Death")
 	match moving:
 		directions.DOWN:
 			animated_sprite_2d.play("death_down")
