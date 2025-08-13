@@ -2,6 +2,8 @@ class_name Grid
 
 extends Node
 
+@export var level_handler : LevelHandler
+
 var player_scene = preload("res://Scenes/Entities/player.tscn")
 
 var enemy_scene = preload("res://Scenes/Entities/enemy.tscn")
@@ -69,6 +71,7 @@ func entity_check(tile_data,i,j) -> void:
 		player.grid = self
 		player.position = Vector2(j*tile_size,i*tile_size)
 		found_start = true
+		player.player_died.connect(level_handler.on_player_death)
 	if "stone" in tile_data and tile_data.type == "p":
 		make_stone(tile_data.stone,i,j)
 	if "enemy" in tile_data:

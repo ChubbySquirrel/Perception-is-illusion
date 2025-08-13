@@ -1,19 +1,122 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw035tk2q5axt"]
+[gd_scene load_steps=9 format=3 uid="uid://dw035tk2q5axt"]
 
 [ext_resource type="Script" uid="uid://c2g5xm8k8e0vc" path="res://Scripts/Level_Generation/level_handler.gd" id="1_xogbl"]
 [ext_resource type="Script" uid="uid://botoni6s141qf" path="res://Scripts/Level_Generation/grid.gd" id="2_ws83c"]
 [ext_resource type="Script" uid="uid://dvluiguns7rd8" path="res://stone_group_manager.gd" id="3_ws83c"]
+[ext_resource type="Script" uid="uid://doduxppvknnbp" path="res://Scripts/UI/player_ui.gd" id="4_7n7ud"]
+[ext_resource type="PackedScene" uid="uid://cd12x6je2vf0o" path="res://Scenes/UI/sucess_screen.tscn" id="5_x4mtp"]
+[ext_resource type="PackedScene" uid="uid://cmc2c5o77x4fu" path="res://Scenes/UI/death_screen.tscn" id="6_4q8bl"]
+[ext_resource type="PackedScene" uid="uid://osm34xkrkas8" path="res://Scenes/UI/main_menu.tscn" id="6_x4mtp"]
+[ext_resource type="PackedScene" uid="uid://c7nlgpkgvlnc4" path="res://Scenes/UI/pause_menu.tscn" id="7_n4a7i"]
 
-[node name="level_handler" type="Node" node_paths=PackedStringArray("grid", "stone_manager")]
+[node name="level_handler" type="Node" node_paths=PackedStringArray("grid", "stone_manager", "success_screen", "death_screen")]
 script = ExtResource("1_xogbl")
 grid = NodePath("Grid")
 stone_manager = NodePath("StoneGroupManager")
+success_screen = NodePath("CanvasLayer/Control/SucessScreen")
+death_screen = NodePath("CanvasLayer/Control/DeathScreen")
 
-[node name="Grid" type="Node" parent="."]
+[node name="Grid" type="Node" parent="." node_paths=PackedStringArray("level_handler")]
 script = ExtResource("2_ws83c")
+level_handler = NodePath("..")
 
 [node name="StoneGroupManager" type="Node" parent="."]
 script = ExtResource("3_ws83c")
 metadata/_custom_type_script = "uid://dvluiguns7rd8"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("pause_menu")]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("4_7n7ud")
+pause_menu = NodePath("PauseMenu")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/MarginContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/MarginContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/Panel/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/Control/MarginContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/Panel/HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="SucessScreen" parent="CanvasLayer/Control" instance=ExtResource("5_x4mtp")]
+visible = false
+layout_mode = 1
+main_menu = ExtResource("6_x4mtp")
+
+[node name="DeathScreen" parent="CanvasLayer/Control" instance=ExtResource("6_4q8bl")]
+visible = false
+layout_mode = 1
+main_menu = ExtResource("6_x4mtp")
+
+[node name="PauseMenu" parent="CanvasLayer/Control" instance=ExtResource("7_n4a7i")]
+visible = false
+layout_mode = 1
+main_menu = ExtResource("6_x4mtp")
+
 [connection signal="player_reached_goal" from="Grid" to="." method="_on_grid_player_reached_goal"]
+[connection signal="button_down" from="CanvasLayer/Control/MarginContainer/Button" to="CanvasLayer/Control" method="show_pause_menu"]

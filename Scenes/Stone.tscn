@@ -33,6 +33,7 @@ offset_left = -15.0
 offset_top = -15.0
 offset_right = 15.0
 offset_bottom = 15.0
+focus_mode = 0
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
@@ -50,6 +51,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_p124w")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_mokkv")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_my2ym")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gmj56")
+action_mode = 0
 button_mask = 3
 flat = true
 

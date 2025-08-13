@@ -4,17 +4,23 @@ extends CharacterBody2D
 
 @export var speed : float = 100
 
-@export var sucess_view : Control
-
-@export var go : Control
-
 @export var b : Bracer
 
 var disabled = false
 
 var grid : Grid
 
-func _process(_delta: float) -> void:
+var bodies_intersecting : Dictionary[Node2D,bool] = {}
+
+var countdown = false
+
+var t : float = 0
+
+var suffocation_time : float = 2
+
+signal player_died
+
+func _process(delta: float) -> void:
 	if disabled:
 		return
 	
@@ -29,15 +35,16 @@ func _process(_delta: float) -> void:
 		direction += Vector2.RIGHT
 	velocity = direction*speed
 	move_and_slide()
+	if countdown:
+		t += delta
+		if t >= suffocation_time:
+			kill()
+
 
 func kill()->void:
 	Engine.time_scale = 0
 	disabled = true
-	go.visible = true
-
-func show_success_screen()->void:
-	Engine.time_scale = 0
-	sucess_view.visible = true
+	player_died.emit()
 
 func make_stones(stones : Array[String])-> void:
 	for stone in stones:
@@ -54,3 +61,17 @@ func stone_move(g : String, mov : Vector2i) -> void:
 
 func stone_rotate(g : String, dir : Vector2) -> void:
 	grid.stone_manager.stone_rotate(g,dir)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body != self:
+		bodies_intersecting.set(body,true)
+		countdown = true
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if bodies_intersecting.has(body):
+		bodies_intersecting.erase(body)
+		if bodies_intersecting.size() == 0:
+			t = 0
+			countdown = false

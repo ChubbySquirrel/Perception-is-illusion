@@ -162,6 +162,9 @@ func _physics_process(delta: float) -> void:
 				movement_in_progress = false
 		else:
 			if shrink_in_progress and not rotation_in_progress:
+				if walls.size() == 1:
+					shrink_in_progress = false
+					rotation_in_progress = true
 				for wall : StoneWall in walls:
 					if wall == pivot:
 						continue
@@ -182,6 +185,8 @@ func _physics_process(delta: float) -> void:
 					t = 0
 					enable_child_colliders()
 			if not rotation_in_progress and not shrink_in_progress:
+				if walls.size() == 1:
+					movement_in_progress = false
 				for wall : StoneWall in walls:
 					if wall == pivot:
 						continue
