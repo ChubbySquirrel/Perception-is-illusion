@@ -1,15 +1,19 @@
-{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
-{"type":"w"};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
-{"type":"w"};{"type":"p","stone": {"group": "A","pivot": false}};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
-{"type":"w"};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
-{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
-{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
-{"type":"w"};{"type":"w"};{"type":"w"};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
-{"type":"w"};{"type":"s"};{"type":"p"};{"type":"p","stone": {"group": "A","pivot": true}};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"g"};{"type":"w"}
-{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"h"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
-{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
-{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
-{"type":"w"};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"p","enemy":"true"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
-{"type":"w"};{"type":"p","stone": {"group": "A","pivot": false}};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
-{"type":"w"};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
-{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
+{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
+{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"p","enemy":"true"};{"type":"w"}
+{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"p","stone": {"group": "C","pivot": false}};{"type":"w"}
+{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"p","stone": {"group": "B","pivot": false}};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"w"}
+{"type":"w"};{"type":"w"};{"type":"w"};{"type":"p"};{"type":"w"};{"type":"p"};{"type":"p"};{"type":"w"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"w"}
+{"type":"w"};{"type":"p","enemy":"true"};{"type":"p","stone": {"group": "B","pivot": true}};{"type":"p","enemy":"true"};{"type":"p"};{"type":"p"};{"type":"w"};{"type":"p"};{"type":"p"};{"type":"p","stone": {"group": "C","pivot": true}};{"type":"p"};{"type":"p"};{"type":"w"}
+{"type":"w"};{"type":"p"};{"type":"w"};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
+{"type":"w"};{"type":"p"};{"type":"w"};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"p","stone": {"group": "C","pivot": false}};{"type":"g"};{"type":"w"}
+{"type":"w"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"p","stone": {"group": "C","pivot": false}};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
+{"type":"w"};{"type":"p"};{"type":"w"};{"type":"p","stone": {"group": "A","pivot": true}};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"p","enemy":"true"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
+{"type":"w"};{"type":"p"};{"type":"w"};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
+{"type":"w"};{"type":"p"};{"type":"p"};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
+{"type":"w"};{"type":"p"};{"type":"w"};{"type":"p"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
+{"type":"w"};{"type":"p","stone": {"group": "A","pivot": false}};{"type":"w"};{"type":"s"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
+{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
+{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
+{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
+{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}
+{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"};{"type":"w"}

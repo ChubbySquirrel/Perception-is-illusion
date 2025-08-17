@@ -109,6 +109,15 @@ func can_rotate(dir : Vector2) -> bool:
 				if wall == pivot:
 					continue
 				var new_position = new_counterclockwise_position(wall)
+				var moving_to_moving_tile = false
+				for wall2 in walls:
+					if wall2 == wall:
+						continue
+					if wall2.loc == new_position:
+						moving_to_moving_tile = true
+						break
+				if moving_to_moving_tile:
+					continue
 				var spot_open = manager.move_possible(new_position)
 				if not spot_open:
 					can_rotate = false

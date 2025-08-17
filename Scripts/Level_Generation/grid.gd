@@ -48,8 +48,11 @@ func create_tile(tile_data,i,j,new_row)->Tile:
 	var tile_type = TileRules.get_tile_type_from_string(type_identifier)
 	var new_tile : Tile = Tile.new()
 	if i > 0:
-		new_tile.tile_above = grid_elements[i-1][j]
-		grid_elements[i-1][j].tile_below = new_tile
+		if i-1 < grid_elements.size():
+			var previous_row = grid_elements[i-1]
+			if j < previous_row.size():
+				new_tile.tile_above = previous_row[j]
+				previous_row[j].tile_below = new_tile
 	if j > 0:
 		new_tile.tile_left = new_row[j-1]
 		new_row[j-1].tile_right = new_tile

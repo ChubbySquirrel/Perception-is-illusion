@@ -11,6 +11,7 @@ var initial_rot: float
 var initial_pos: Vector2
 var bracer_pos: Vector2i
 
+var rot_speed : float = 0.005
 
 var moved_to: Vector2
 
@@ -50,7 +51,7 @@ func _process(delta: float) -> void:
 				position = initial_pos_on_click + rel_current_mouse_pos - rel_initial_mouse_pos
 				
 			else:
-				rotation = initial_rot + atan2(rel_initial_mouse_pos.x,rel_initial_mouse_pos.y) - atan2(rel_current_mouse_pos.x,rel_current_mouse_pos.y)
+				rotation = initial_rot + rot_speed * (rel_current_mouse_pos.y - rel_initial_mouse_pos.y)
 			bracer.check_moved(self)
 			bracer.check_rotate(self)
 		

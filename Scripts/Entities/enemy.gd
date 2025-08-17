@@ -16,9 +16,6 @@ func activate() -> void:
 	var t = grid.get_player_tile()
 	go_to(t)
 
-
-var player_eliminated = false
-
 func  _ready() -> void:
 	animated_sprite_2d = get_node("AnimatedSprite2D")
 	if activate_on_ready:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cifalne7y7gvx"]
 
 [ext_resource type="Script" uid="uid://c3cfqjbsu3lt1" path="res://Scripts/stone.gd" id="1_177fh"]
-[ext_resource type="Texture2D" uid="uid://dx2h3hewd1qgx" path="res://Assets/Free Flat Greyscale Assets 2/rug-2x2.png" id="2_6slwf"]
+[ext_resource type="Texture2D" uid="uid://kiwkeqgy72w" path="res://Assets/Free Flat Greyscale Assets 2/rug-2x2.png" id="2_6slwf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m3q8e"]
 

@@ -1,11 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://iai6cc2gkejj"]
+[gd_scene load_steps=17 format=3 uid="uid://iai6cc2gkejj"]
 
-[ext_resource type="Script" uid="uid://dkmybyteey3gk" path="res://Scripts/Entities/enemy.gd" id="1_7k104"]
-[ext_resource type="Texture2D" uid="uid://d3lr0kcef2akc" path="res://Assets/Enemy_Animations_Set/skeleton-idle_edited.png" id="2_o6kgl"]
-[ext_resource type="Texture2D" uid="uid://cp26r76wyae0j" path="res://Assets/Enemy_Animations_Set/skeleton-walk_edit.png" id="3_ge2ll"]
+[ext_resource type="Script" uid="uid://cii1sksdhod5o" path="res://Scripts/Entities/enemy.gd" id="1_7k104"]
+[ext_resource type="Texture2D" uid="uid://c2gkxygc3h3gu" path="res://Assets/Enemy_Animations_Set/skeleton-idle_edited.png" id="2_o6kgl"]
+[ext_resource type="Texture2D" uid="uid://c0sunc1i2qalh" path="res://Assets/Enemy_Animations_Set/skeleton-walk_edit.png" id="3_ge2ll"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
 size = Vector2(20, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2gkr"]
+size = Vector2(32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ge2ll"]
 atlas = ExtResource("2_o6kgl")
@@ -90,15 +93,12 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2gkr"]
-size = Vector2(32, 32)
-
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("shape_cast")]
 z_index = 1
 scale = Vector2(1.75, 1.75)
 script = ExtResource("1_7k104")
 shape_cast = NodePath("ShapeCast2D")
-speed = 120
+speed = 160
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false

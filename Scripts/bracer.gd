@@ -16,16 +16,16 @@ var stone_scene = preload("res://Scenes/Stone.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var texture_dict: Dictionary[String,Texture2D] = {
-	"A": ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number0-1x1.png")),
-	"B" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number1-1x1.png")),
-	"C" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number2-1x1.png")),
-	"D" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number3-1x1.png")),
-	"E" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number4-1x1.png")),
-	"F" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number5-1x1.png")),
-	"G" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number6-1x1.png")),
-	"H" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number7-1x1.png")),
-	"I" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number8-1x1.png")),
-	"J" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number9-1x1.png")),
+	"A": preload("res://Assets/Free Flat Greyscale Dungeon Assets/number0-1x1.png"),
+	"B" : preload("res://Assets/Free Flat Greyscale Dungeon Assets/number1-1x1.png"),
+	"C" : preload("res://Assets/Free Flat Greyscale Dungeon Assets/number2-1x1.png"),
+	"D" : preload("res://Assets/Free Flat Greyscale Dungeon Assets/number3-1x1.png"),
+	"E" : preload("res://Assets/Free Flat Greyscale Dungeon Assets/number4-1x1.png"),
+	"F" : preload("res://Assets/Free Flat Greyscale Dungeon Assets/number5-1x1.png"),
+	"G" : preload("res://Assets/Free Flat Greyscale Dungeon Assets/number6-1x1.png"),
+	"H" : preload("res://Assets/Free Flat Greyscale Dungeon Assets/number7-1x1.png"),
+	"I" : preload("res://Assets/Free Flat Greyscale Dungeon Assets/number8-1x1.png"),
+	"J" : preload("res://Assets/Free Flat Greyscale Dungeon Assets/number9-1x1.png"),
 }
 
 #time to determine how long for stones to snap
@@ -101,7 +101,6 @@ func check_rotate(stone:Stone):
 			player.stone_rotate(stone.type, Vector2.LEFT)
 		stone.initial_rot += rotate_change
 		stone.pressed = false
-		print("Rotate")
 		animation_player.play("stone_rotate")
 
 		

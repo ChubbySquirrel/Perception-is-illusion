@@ -17,7 +17,6 @@ func _ready() -> void:
 	stone_manager.assign_pivots()
 	grid.player.make_stones(stone_manager.groups.keys(),stone_manager.get_pivot_positions())
 
-
 func _on_grid_player_reached_goal() -> void:
 	grid.player.disabled = true
 	Engine.time_scale = 0

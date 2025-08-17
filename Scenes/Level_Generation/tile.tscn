@@ -2,20 +2,6 @@
 
 [node name="Tile" type="StaticBody2D"]
 
-[node name="Overall_Appearance" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(64, -64, 64, 64, -64, 64, -64, -64)
-uv = PackedVector2Array(128, 0, 128, 128, 0, 128, 0, 0)
-
-[node name="Debug_Text" type="RichTextLabel" parent="."]
-visible = false
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
-mouse_filter = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-text = "I: J: "
-
 [node name="Top_Wall" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-64, -64, -48, -48, 48, -48, 64, -64)
 disabled = true
@@ -52,4 +38,18 @@ visible = false
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(64, -64, 64, 64, 48, 48, 48, -48)
 
+[node name="Overall_Appearance" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(64, -64, 64, 64, -64, 64, -64, -64)
+uv = PackedVector2Array(128, 0, 128, 128, 0, 128, 0, 0)
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
+
+[node name="Debug_Text" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "I: J: "

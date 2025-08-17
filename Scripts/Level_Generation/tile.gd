@@ -19,11 +19,11 @@ var colors : Dictionary[TileTypes,Color] = {
 }
 
 var sprites : Dictionary = {
-	TileTypes.PATH : ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Assets 2/rug2-2x2.png")) ,
-	TileTypes.WALL : ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Assets 2/rug-2x2.png")),
-	TileTypes.GOAL : ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Assets 2/rug4-2x2.png")),
-	TileTypes.HIDDENPATH : ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Assets 2/rug2-2x2.png")) ,
-	TileTypes.DOOR : ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Assets 2/rug2-2x2.png")) ,
+	TileTypes.PATH : preload("res://Assets/Free Flat Greyscale Assets 2/rug2-2x2.png"),
+	TileTypes.WALL : preload("res://Assets/Free Flat Greyscale Dungeon Assets/effectsBlacksquare1x1.png"),
+	TileTypes.GOAL : preload("res://Assets/Free Flat Greyscale Assets 2/rug4-2x2.png"),
+	TileTypes.HIDDENPATH : preload("res://Assets/Free Flat Greyscale Dungeon Assets/effectsBlacksquare1x1.png") ,
+	TileTypes.DOOR : preload("res://Assets/Free Flat Greyscale Assets 2/rug2-2x2.png"),
 }
 
 var sprites_offset : Dictionary = {

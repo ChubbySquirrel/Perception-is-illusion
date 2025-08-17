@@ -24,20 +24,6 @@ enum directions{
 	RIGHT,
 }
 
-var moving: directions
-
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-
-
-	
-enum directions{
-	UP,
-	DOWN,
-	LEFT,
-	RIGHT,
-}
-
 var bodies_intersecting : Dictionary[Node2D,bool] = {}
 
 var countdown = false
@@ -48,15 +34,6 @@ var suffocation_time : float = 2
 
 signal player_died
 
-var bodies_intersecting : Dictionary[Node2D,bool] = {}
-
-var countdown = false
-
-var t : float = 0
-
-var suffocation_time : float = 2
-
-signal player_died
 
 func _process(delta: float) -> void:
 	if disabled:
@@ -128,12 +105,13 @@ func kill()->void:
 			animated_sprite_2d.play("death_up")
 		_:
 			animated_sprite_2d.play("death_right")
-			
+	player_died.emit()
+
 	
 
-func show_success_screen()->void:
-	Engine.time_scale = 0
-	sucess_view.visible = true
+#func show_success_screen()->void:
+	#Engine.time_scale = 0
+	#sucess_view.visible = true
 
 func make_stones(stones : Array[String], positions : Array[Vector2i])-> void:
 	for i in range(stones.size()):
@@ -170,5 +148,4 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 #This will only call on any of the death animations
 func _on_animated_sprite_2d_animation_finished() -> void:
 	Engine.time_scale = 0
-	go.visible = true
-	pass # Replace with function body.
+	player_died.emit()

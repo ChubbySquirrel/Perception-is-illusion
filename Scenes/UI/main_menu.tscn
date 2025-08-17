@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://osm34xkrkas8"]
+[gd_scene load_steps=7 format=3 uid="uid://osm34xkrkas8"]
 
-[ext_resource type="Script" uid="uid://6375aaaas84h" path="res://Scripts/UI/main_menu.gd" id="1_5wsvm"]
+[ext_resource type="Script" uid="uid://nkhxvfyajiq7" path="res://Scripts/UI/main_menu.gd" id="1_5wsvm"]
+[ext_resource type="Texture2D" uid="uid://dxgr0l3ftmj6u" path="res://Assets/Free Flat Greyscale Dungeon Assets/stonytile5x5.png" id="2_u7lva"]
+[ext_resource type="Theme" uid="uid://b5rmpnk3vlw6h" path="res://Resources/Themes/Death_Menu.tres" id="3_mrfpk"]
+[ext_resource type="Texture2D" uid="uid://qehuvk0lj6qc" path="res://Assets/UI/FreeButtons.png/FreeButtons.png" id="4_4pqbp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gih0s"]
+atlas = ExtResource("4_4pqbp")
+region = Rect2(64.5316, 83.0281, 15.221, 10.3196)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k33u3"]
+atlas = ExtResource("4_4pqbp")
+region = Rect2(80.4936, 83.3517, 15.5949, 10.2461)
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -18,7 +29,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.563374, 0.495324, 0.518939, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_u7lva")
+expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -37,9 +57,18 @@ theme_override_constants/margin_right = 50
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
-text = "Help MEEEEEEEE"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/ColorRect"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 1712.0
+offset_bottom = 209.0
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "[color=#000000]Lackluster Labyrinth[/color]"
 fit_content = true
 horizontal_alignment = 1
 
@@ -47,16 +76,6 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/VBoxContainer/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-color = Color(0.453232, 0.453232, 0.453232, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Control"]
 layout_mode = 1
@@ -78,11 +97,35 @@ layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
 
-[node name="Levels" type="Button" parent="HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer2"]
+[node name="Levels" type="TextureButton" parent="HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(160, 250)
 layout_mode = 2
+theme = ExtResource("3_mrfpk")
+texture_normal = SubResource("AtlasTexture_gih0s")
+texture_hover = SubResource("AtlasTexture_k33u3")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer2/Levels"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.5
+offset_top = -2.0
+offset_right = 4.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
 text = "Levels"
+context_menu_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
@@ -99,10 +142,32 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="Exit" type="Button" parent="HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer4"]
+[node name="Exit" type="TextureButton" parent="HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer4"]
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
-text = "Exit
-"
+theme = ExtResource("3_mrfpk")
+texture_normal = SubResource("AtlasTexture_gih0s")
+texture_hover = SubResource("AtlasTexture_k33u3")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer4/Exit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.5
+offset_top = -2.0
+offset_right = 4.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "Exit"
+context_menu_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
