@@ -20,8 +20,11 @@ var bracer: Bracer
 
 var type: String
 
+var number: Polygon2D
+
 func _ready() -> void:
 	initial_pos = position
+	number = find_child("Number")
 
 func _process(delta: float) -> void:
 	
@@ -85,3 +88,4 @@ func create (itype:String,iactive:bool,sense:float,iposition:Vector2i ):
 	sense = slide_sense
 	bracer_pos = iposition
 	position = bracer.home_position(bracer_pos)
+	number.texture = bracer.texture_dict[itype]

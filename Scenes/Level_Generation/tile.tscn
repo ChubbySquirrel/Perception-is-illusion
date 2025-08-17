@@ -51,3 +51,5 @@ polygon = PackedVector2Array(-64, 64, 64, 64, 48, 48, -48, 48)
 visible = false
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(64, -64, 64, 64, 48, 48, 48, -48)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]

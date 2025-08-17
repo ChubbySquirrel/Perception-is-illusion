@@ -9,12 +9,18 @@ var player_eliminated = false
 
 @export var shape_cast : ShapeCast2D
 
+var animated_sprite_2d: AnimatedSprite2D
+
 func activate() -> void:
 	activated = true
 	var t = grid.get_player_tile()
 	go_to(t)
 
+
+var player_eliminated = false
+
 func  _ready() -> void:
+	animated_sprite_2d = get_node("AnimatedSprite2D")
 	if activate_on_ready:
 		activate()
 
@@ -58,3 +64,15 @@ func _physics_process(_delta: float) -> void:
 			shape_cast.force_shapecast_update()
 			if not shape_cast.is_colliding():
 				current_index += 1
+	if state == Behaviours.IDLE:
+		animated_sprite_2d.play("idle")
+	else:
+		if velocity.x > 0:
+			animated_sprite_2d.flip_h = false
+		if velocity.x < 0: 
+			animated_sprite_2d.flip_h = true
+		animated_sprite_2d.play("walk")
+	
+
+
+	

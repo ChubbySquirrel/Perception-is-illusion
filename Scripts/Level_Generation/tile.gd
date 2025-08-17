@@ -18,6 +18,24 @@ var colors : Dictionary[TileTypes,Color] = {
 	TileTypes.GOAL : Color.DARK_GOLDENROD
 }
 
+var sprites : Dictionary = {
+	TileTypes.PATH : ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Assets 2/rug2-2x2.png")) ,
+	TileTypes.WALL : ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Assets 2/rug-2x2.png")),
+	TileTypes.GOAL : ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Assets 2/rug4-2x2.png")),
+	TileTypes.HIDDENPATH : ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Assets 2/rug2-2x2.png")) ,
+	TileTypes.DOOR : ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Assets 2/rug2-2x2.png")) ,
+}
+
+var sprites_offset : Dictionary = {
+	TileTypes.PATH : Vector2(5,5),
+	TileTypes.WALL : Vector2(0,0),
+	TileTypes.GOAL : Vector2(5,5),
+	TileTypes.HIDDENPATH : Vector2(5,5),
+	TileTypes.DOOR : Vector2(5,5),
+}
+
+
+
 var type : TileTypes
 var scene = preload("res://Scenes/Level_Generation/tile.tscn")
 
@@ -44,7 +62,8 @@ func _ready() -> void:
 	
 	tile = scene.instantiate()
 	add_child(tile)
-	tile.get_node("Overall_Appearance").color = colors.get(type)
+	tile.get_node("Overall_Appearance").texture = sprites[type]
+	tile.get_node("Overall_Appearance").texture_offset = sprites_offset[type]
 	if TileRules.tile_type_collisions.get(type):
 		enable_all_walls()
 		blocked = true

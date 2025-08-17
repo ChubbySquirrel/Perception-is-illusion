@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c42uaw75y5bou"]
 
-[ext_resource type="Texture2D" uid="uid://7e4nk2rodxkd" path="res://icon.svg" id="1_0skly"]
-[ext_resource type="Script" uid="uid://dfk75f27bxd01" path="res://stone_wall.gd" id="1_kqaf4"]
+[ext_resource type="Script" uid="uid://dbjsmkp8e6obq" path="res://stone_wall.gd" id="1_kqaf4"]
+[ext_resource type="Texture2D" uid="uid://dx2h3hewd1qgx" path="res://Assets/Free Flat Greyscale Assets 2/rug-2x2.png" id="2_kqaf4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqaf4"]
 size = Vector2(128, 128)
@@ -10,12 +10,12 @@ size = Vector2(128, 128)
 z_index = 1
 script = ExtResource("1_kqaf4")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kqaf4")
+
 [node name="Appearance" type="Polygon2D" parent="."]
-color = Color(0, 0, 0, 1)
+texture_offset = Vector2(35, 35)
 polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kqaf4")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_0skly")

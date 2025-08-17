@@ -1,7 +1,9 @@
-[gd_scene format=3 uid="uid://d3dhs60igsc7n"]
+[gd_scene load_steps=2 format=3 uid="uid://d3dhs60igsc7n"]
+
+[ext_resource type="Texture2D" uid="uid://b7726df5yja4j" path="res://Assets/Free Flat Greyscale Dungeon Assets/table1x1.png" id="1_ysyer"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.968345, 0.130805, 0.297022, 1)
-polygon = PackedVector2Array(16, -16, -16, -16, -16, 16, 16, 16, 13, 13, -13, 13, -13, -13, 13, -13, 13, 13, 16, 16)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("1_ysyer")

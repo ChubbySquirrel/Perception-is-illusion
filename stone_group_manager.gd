@@ -12,6 +12,19 @@ var stone_locations : Dictionary[int,Dictionary] = {}
 
 var wall_scene = preload("res://stone_wall.tscn")
 
+var texture_dict: Dictionary[String,Texture2D] = {
+	"A": ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number0-1x1.png")),
+	"B" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number1-1x1.png")),
+	"C" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number2-1x1.png")),
+	"D" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number3-1x1.png")),
+	"E" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number4-1x1.png")),
+	"F" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number5-1x1.png")),
+	"G" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number6-1x1.png")),
+	"H" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number7-1x1.png")),
+	"I" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number8-1x1.png")),
+	"J" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number9-1x1.png")),
+}
+
 func add_stone(stone_data : Variant, loc : Vector2i,) -> bool:
 	var g = stone_data.group
 	if not groups.has(g):
@@ -61,6 +74,7 @@ func move_possible(p : Vector2i) -> bool:
 
 func make_new_stone_wall(g : String, loc : Vector2i) -> StoneWall:
 	var new_wall : StoneWall = wall_scene.instantiate()
+	new_wall.get_node("Appearance").texture = texture_dict[g]
 	return new_wall
 
 func assign_pivots()-> void:
