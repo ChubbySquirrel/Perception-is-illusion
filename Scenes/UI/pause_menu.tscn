@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://c7nlgpkgvlnc4"]
 
-[ext_resource type="Script" uid="uid://cyanuumlgva4s" path="res://Scripts/UI/death_screen.gd" id="1_8rf44"]
+[ext_resource type="Script" uid="uid://cqcc15ksx26tp" path="res://Scripts/UI/death_screen.gd" id="1_8rf44"]
 [ext_resource type="Theme" uid="uid://b5rmpnk3vlw6h" path="res://Resources/Themes/Death_Menu.tres" id="2_r2i2h"]
-[ext_resource type="Texture2D" uid="uid://sj15mwskwgox" path="res://Assets/UI/FreeButtons.png/FreeButtons.png" id="3_r2i2h"]
+[ext_resource type="Texture2D" uid="uid://qehuvk0lj6qc" path="res://Assets/UI/FreeButtons.png/FreeButtons.png" id="3_r2i2h"]
 
 [sub_resource type="Gradient" id="Gradient_6bi5g"]
 offsets = PackedFloat32Array(0, 0.233618, 0.952991)

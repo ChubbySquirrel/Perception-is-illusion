@@ -1,0 +1,67 @@
+[gd_scene load_steps=14 format=3 uid="uid://cifalne7y7gvx"]
+
+[ext_resource type="Script" uid="uid://c3cfqjbsu3lt1" path="res://Scripts/UI/stone.gd" id="1_ae6ny"]
+[ext_resource type="Texture2D" uid="uid://kiwkeqgy72w" path="res://Assets/Free Flat Greyscale Assets 2/rug-2x2.png" id="2_t0l5q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m3q8e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6slwf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rsbat"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_75567"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r8q0i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xprqk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1pwx8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p124w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mokkv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_my2ym"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gmj56"]
+
+[node name="Control" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_ae6ny")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+focus_mode = 0
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m3q8e")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_6slwf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rsbat")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_75567")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_r8q0i")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xprqk")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1pwx8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_p124w")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mokkv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_my2ym")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gmj56")
+action_mode = 0
+button_mask = 3
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_t0l5q")
+
+[node name="Number" type="Polygon2D" parent="."]
+texture_offset = Vector2(35, 35)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

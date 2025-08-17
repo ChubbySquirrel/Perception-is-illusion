@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c42uaw75y5bou"]
+
+[ext_resource type="Script" uid="uid://dfk75f27bxd01" path="res://Scripts/Level_Generation/stone_wall.gd" id="1_hxd8n"]
+[ext_resource type="Texture2D" uid="uid://kiwkeqgy72w" path="res://Assets/Free Flat Greyscale Assets 2/rug-2x2.png" id="2_sanxa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqaf4"]
+size = Vector2(128, 128)
+
+[node name="StoneWall" type="StaticBody2D"]
+z_index = 1
+script = ExtResource("1_hxd8n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sanxa")
+
+[node name="Appearance" type="Polygon2D" parent="."]
+texture_offset = Vector2(35, 35)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kqaf4")

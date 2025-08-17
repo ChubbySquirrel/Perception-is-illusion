@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3dhs60igsc7n"]
-
-[ext_resource type="Texture2D" uid="uid://b7726df5yja4j" path="res://Assets/Free Flat Greyscale Dungeon Assets/table1x1.png" id="1_ysyer"]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, 0)
-texture = ExtResource("1_ysyer")
