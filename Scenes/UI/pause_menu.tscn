@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7nlgpkgvlnc4"]
+[gd_scene load_steps=8 format=3 uid="uid://c7nlgpkgvlnc4"]
 
-[ext_resource type="Script" uid="uid://cqcc15ksx26tp" path="res://Scripts/UI/death_screen.gd" id="1_8rf44"]
+[ext_resource type="Script" uid="uid://cyanuumlgva4s" path="res://Scripts/UI/death_screen.gd" id="1_8rf44"]
 [ext_resource type="Theme" uid="uid://b5rmpnk3vlw6h" path="res://Resources/Themes/Death_Menu.tres" id="2_r2i2h"]
+[ext_resource type="Texture2D" uid="uid://sj15mwskwgox" path="res://Assets/UI/FreeButtons.png/FreeButtons.png" id="3_r2i2h"]
 
 [sub_resource type="Gradient" id="Gradient_6bi5g"]
 offsets = PackedFloat32Array(0, 0.233618, 0.952991)
@@ -13,6 +14,14 @@ width = 500
 height = 1080
 fill_from = Vector2(0.535385, 0.851852)
 fill_to = Vector2(0.443077, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oykix"]
+atlas = ExtResource("3_r2i2h")
+region = Rect2(96.7035, 50.8976, 14.6909, 10.0201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdnb7"]
+atlas = ExtResource("3_r2i2h")
+region = Rect2(112.94, 51.818, 14.1962, 9.54434)
 
 [node name="PauseMenu" type="Control"]
 z_index = 1
@@ -52,15 +61,17 @@ texture = SubResource("GradientTexture2D_y0ggs")
 [node name="RichTextLabel" type="RichTextLabel" parent="TextureRect"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -50.0
-offset_right = 50.0
-offset_bottom = 23.0
+anchor_bottom = 0.064
+offset_left = -113.0
+offset_top = 65.0
+offset_right = 118.0
+offset_bottom = 105.88
 grow_horizontal = 2
 mouse_filter = 1
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
 text = "[color=#000000]Pause[/color]"
 fit_content = true
@@ -82,29 +93,95 @@ alignment = 1
 layout_mode = 2
 theme = ExtResource("2_r2i2h")
 
-[node name="Restart" type="Button" parent="VBoxContainer/MarginContainer"]
+[node name="Restart" type="TextureButton" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(300, 120)
 layout_mode = 2
 theme = ExtResource("2_r2i2h")
+texture_normal = SubResource("AtlasTexture_oykix")
+texture_hover = SubResource("AtlasTexture_kdnb7")
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer/Restart"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.5
+offset_top = -2.0
+offset_right = 4.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
 text = "Restart"
+context_menu_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_r2i2h")
 
-[node name="level_menu" type="Button" parent="VBoxContainer/MarginContainer2"]
+[node name="LevelMenu" type="TextureButton" parent="VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(300, 120)
 layout_mode = 2
 theme = ExtResource("2_r2i2h")
+texture_normal = SubResource("AtlasTexture_oykix")
+texture_hover = SubResource("AtlasTexture_kdnb7")
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer2/LevelMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.5
+offset_top = -2.0
+offset_right = 4.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
 text = "Level Menu"
+context_menu_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_r2i2h")
 
-[node name="Resume" type="Button" parent="VBoxContainer/MarginContainer3"]
+[node name="Resume" type="TextureButton" parent="VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(300, 120)
 layout_mode = 2
 theme = ExtResource("2_r2i2h")
+texture_normal = SubResource("AtlasTexture_oykix")
+texture_hover = SubResource("AtlasTexture_kdnb7")
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer3/Resume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.5
+offset_top = -2.0
+offset_right = 4.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
 text = "Resume"
+context_menu_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_down" from="VBoxContainer/MarginContainer/Restart" to="." method="_on_restart_button_down"]
-[connection signal="button_down" from="VBoxContainer/MarginContainer2/level_menu" to="." method="_on_main_menu_button_down"]
+[connection signal="button_down" from="VBoxContainer/MarginContainer2/LevelMenu" to="." method="_on_main_menu_button_down"]
 [connection signal="button_down" from="VBoxContainer/MarginContainer3/Resume" to="." method="_on_resume_button_down"]

@@ -7,10 +7,26 @@ var stone_types = {"A":true,"B":true,"C":true,"D":true}
 
 var stone_grid: Array[Array]
 
-var tile_size = 32
+var tile_size = 64
 
 var grid_lines = preload("res://Bracer_Grid_line.tscn")
 var stone_scene = preload("res://Scenes/Stone.tscn")
+
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AnimationPlayer/AudioStreamPlayer2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+var texture_dict: Dictionary[String,Texture2D] = {
+	"A": ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number0-1x1.png")),
+	"B" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number1-1x1.png")),
+	"C" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number2-1x1.png")),
+	"D" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number3-1x1.png")),
+	"E" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number4-1x1.png")),
+	"F" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number5-1x1.png")),
+	"G" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number6-1x1.png")),
+	"H" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number7-1x1.png")),
+	"I" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number8-1x1.png")),
+	"J" :ImageTexture.create_from_image(Image.load_from_file("res://Assets/Free Flat Greyscale Dungeon Assets/number9-1x1.png")),
+}
 
 #time to determine how long for stones to snap
 var snap_time = 100
@@ -60,6 +76,9 @@ func check_moved(stone:Stone):
 			
 			stone.pressed = false
 			stone.moved_to = home_position(new_grid_pos)
+			print("Slide")
+			animation_player.play("stone_slide")
+			
 		return 
 	else:
 		return
@@ -81,8 +100,9 @@ func check_rotate(stone:Stone):
 			rotate_change = -PI/2
 			player.stone_rotate(stone.type, Vector2.LEFT)
 		stone.initial_rot += rotate_change
-
 		stone.pressed = false
+		print("Rotate")
+		animation_player.play("stone_rotate")
 
 		
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw035tk2q5axt"]
+[gd_scene load_steps=5 format=3 uid="uid://dw035tk2q5axt"]
 
-[ext_resource type="Script" uid="uid://c2g5xm8k8e0vc" path="res://Scripts/Level_Generation/level_handler.gd" id="1_xogbl"]
-[ext_resource type="Script" uid="uid://botoni6s141qf" path="res://Scripts/Level_Generation/grid.gd" id="2_ws83c"]
-[ext_resource type="Script" uid="uid://dvluiguns7rd8" path="res://stone_group_manager.gd" id="3_ws83c"]
+[ext_resource type="Script" uid="uid://b22855m7cpoma" path="res://Scripts/Level_Generation/level_handler.gd" id="1_xogbl"]
+[ext_resource type="Script" uid="uid://c011avy1kuokc" path="res://Scripts/Level_Generation/grid.gd" id="2_ws83c"]
+[ext_resource type="Script" uid="uid://18kdxy22ppux" path="res://stone_group_manager.gd" id="3_ws83c"]
+[ext_resource type="AudioStream" uid="uid://cwq3cfftm7a57" path="res://Assets/Music/Minifantasy_Dungeon_Music/Minifantasy_Dungeon_Music/Music/Goblins_Den_(Regular).wav" id="4_6wbq6"]
 
 [node name="level_handler" type="Node" node_paths=PackedStringArray("grid", "stone_manager")]
 script = ExtResource("1_xogbl")
@@ -14,6 +15,10 @@ script = ExtResource("2_ws83c")
 
 [node name="StoneGroupManager" type="Node" parent="."]
 script = ExtResource("3_ws83c")
-metadata/_custom_type_script = "uid://dvluiguns7rd8"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6wbq6")
+volume_db = 3.0
+autoplay = true
 
 [connection signal="player_reached_goal" from="Grid" to="." method="_on_grid_player_reached_goal"]

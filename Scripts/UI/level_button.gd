@@ -2,13 +2,12 @@ class_name LevelButton
 
 extends MarginContainer
 
-@export var button : Button
+@export var button_label : RichTextLabel
 
 signal level_clicked(control : Control)
 
 func set_button_text(t : String) -> void:
-	button.text = t
+	button_label.text = t
 
 func _on_button_button_down() -> void:
-	print("button_pressed")
 	level_clicked.emit(self)

@@ -32,6 +32,8 @@ var rotation_in_progress : bool = false
 
 var rotation_speed : float = 1
 
+
+
 func add_wall(w : StoneWall):
 	walls.append(w)
 
