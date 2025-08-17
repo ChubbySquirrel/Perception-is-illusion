@@ -4,10 +4,6 @@ extends Control
 
 var test 
 
-func _ready() -> void:
-	test = preload("res://Scenes/test.tscn")
-
-
 func _on_restart_button_down() -> void:
 	Engine.time_scale = 1
 	get_tree().reload_current_scene()

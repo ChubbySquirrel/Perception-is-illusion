@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmc2c5o77x4fu"]
 
-[ext_resource type="Script" uid="uid://d4e44jxvdmtc4" path="res://Scripts/UI/death_screen.gd" id="1_30dcm"]
+[ext_resource type="Script" uid="uid://cqcc15ksx26tp" path="res://Scripts/UI/death_screen.gd" id="1_30dcm"]
 [ext_resource type="Theme" uid="uid://b5rmpnk3vlw6h" path="res://Resources/Themes/Death_Menu.tres" id="2_68xsb"]
 
 [sub_resource type="Gradient" id="Gradient_6bi5g"]
@@ -23,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_30dcm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -32,6 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0.282407, 0.282407, 0.282407, 0.803922)
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -57,6 +59,7 @@ offset_left = -50.0
 offset_right = 50.0
 offset_bottom = 23.0
 grow_horizontal = 2
+mouse_filter = 1
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "[color=#000000]You Died![/color]"

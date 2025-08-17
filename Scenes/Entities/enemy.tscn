@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://iai6cc2gkejj"]
+[gd_scene load_steps=4 format=3 uid="uid://iai6cc2gkejj"]
 
-[ext_resource type="Script" uid="uid://dngtf1bwo6u7j" path="res://Scripts/Entities/enemy.gd" id="1_7k104"]
+[ext_resource type="Script" uid="uid://cii1sksdhod5o" path="res://Scripts/Entities/enemy.gd" id="1_7k104"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
 size = Vector2(32, 32)
 
-[node name="Enemy" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2gkr"]
+size = Vector2(32, 32)
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("shape_cast")]
 z_index = 1
 script = ExtResource("1_7k104")
+shape_cast = NodePath("ShapeCast2D")
 speed = 120
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -16,3 +20,9 @@ polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4gyqm")
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+shape = SubResource("RectangleShape2D_r2gkr")
+target_position = Vector2(0, 64)
+margin = 5.0
+max_results = 1
