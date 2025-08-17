@@ -118,6 +118,15 @@ func can_rotate(dir : Vector2) -> bool:
 				if wall == pivot:
 					continue
 				var new_position = new_clockwise_position(wall)
+				var moving_to_moving_tile = false
+				for wall2 in walls:
+					if wall2 == wall:
+						continue
+					if wall2.loc == new_position:
+						moving_to_moving_tile = true
+						break
+				if moving_to_moving_tile:
+					continue
 				var spot_open = manager.move_possible(new_position)
 				if not spot_open:
 					can_rotate = false
@@ -164,6 +173,9 @@ func _physics_process(delta: float) -> void:
 				movement_in_progress = false
 		else:
 			if shrink_in_progress and not rotation_in_progress:
+				if walls.size() == 1:
+					shrink_in_progress = false
+					rotation_in_progress = true
 				for wall : StoneWall in walls:
 					if wall == pivot:
 						continue
@@ -184,6 +196,8 @@ func _physics_process(delta: float) -> void:
 					t = 0
 					enable_child_colliders()
 			if not rotation_in_progress and not shrink_in_progress:
+				if walls.size() == 1:
+					movement_in_progress = false
 				for wall : StoneWall in walls:
 					if wall == pivot:
 						continue

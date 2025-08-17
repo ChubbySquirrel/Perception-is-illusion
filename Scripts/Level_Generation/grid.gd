@@ -2,6 +2,8 @@ class_name Grid
 
 extends Node
 
+@export var level_handler : LevelHandler
+
 var player_scene = preload("res://Scenes/Entities/player.tscn")
 
 var enemy_scene = preload("res://Scenes/Entities/enemy.tscn")
@@ -40,7 +42,6 @@ func make_grid_from_file(file_path : String) -> void:
 			new_row.append(new_tile)
 		i += 1
 		grid_elements.append(new_row)
-	player.make_stones(stone_manager.groups.keys())
 
 func create_tile(tile_data,i,j,new_row)->Tile:
 	var type_identifier = tile_data.type
@@ -58,6 +59,7 @@ func create_tile(tile_data,i,j,new_row)->Tile:
 	new_tile.i = i
 	new_tile.j = j
 	add_child(new_tile)
+	new_tile.grid = self
 	new_tile.set_tile_position(Vector2(j*128,i*128))
 	new_tile.set_text("I:"+str(i)+"J:"+str(j))
 	return new_tile
@@ -69,6 +71,7 @@ func entity_check(tile_data,i,j) -> void:
 		player.grid = self
 		player.position = Vector2(j*tile_size,i*tile_size)
 		found_start = true
+		player.player_died.connect(level_handler.on_player_death)
 	if "stone" in tile_data and tile_data.type == "p":
 		make_stone(tile_data.stone,i,j)
 	if "enemy" in tile_data:
@@ -78,6 +81,7 @@ func entity_check(tile_data,i,j) -> void:
 			new_enemy.position = Vector2(j*tile_size,i*tile_size)
 			new_enemy.grid = self
 			new_enemy.activate_on_ready = true
+			stone_manager.map_updated.connect(new_enemy.on_map_updated)
 
 func make_stone(tile_data : Variant, i : int, j : int) -> void:
 	stone_manager.add_stone(tile_data,Vector2i(i,j))

@@ -4,10 +4,6 @@ extends CharacterBody2D
 
 @export var speed : float = 100
 
-@export var sucess_view : Control
-
-@export var go : Control
-
 @export var b : Bracer
 
 var disabled = false
@@ -28,7 +24,41 @@ enum directions{
 	RIGHT,
 }
 
-func _process(_delta: float) -> void:
+var moving: directions
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
+	
+enum directions{
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT,
+}
+
+var bodies_intersecting : Dictionary[Node2D,bool] = {}
+
+var countdown = false
+
+var t : float = 0
+
+var suffocation_time : float = 2
+
+signal player_died
+
+var bodies_intersecting : Dictionary[Node2D,bool] = {}
+
+var countdown = false
+
+var t : float = 0
+
+var suffocation_time : float = 2
+
+signal player_died
+
+func _process(delta: float) -> void:
 	if disabled:
 		return
 	
@@ -71,6 +101,11 @@ func _process(_delta: float) -> void:
 	
 
 	move_and_slide()
+	if countdown:
+		t += delta
+		if t >= suffocation_time:
+			kill()
+
 
 #play idle animation based on most recent direction state
 func play_idle():
@@ -81,7 +116,7 @@ func play_idle():
 				animated_sprite_2d.play("idle_up")
 			_:
 				animated_sprite_2d.play("idle_right")
-		
+				
 
 func kill()->void:
 	disabled = true
@@ -100,9 +135,10 @@ func show_success_screen()->void:
 	Engine.time_scale = 0
 	sucess_view.visible = true
 
-func make_stones(stones : Array[String])-> void:
-	for stone in stones:
-		b.create_stone(stone,Vector2i(1,2))
+func make_stones(stones : Array[String], positions : Array[Vector2i])-> void:
+	for i in range(stones.size()):
+		var p : Vector2i = positions[i]
+		b.create_stone(stones[i],b.handle_edges(Vector2(p.y,p.x)))
 
 func check_stone_move(g : String, mov : Vector2i) -> bool:
 	return grid.stone_manager.check_stone_move(g, mov)
@@ -115,6 +151,20 @@ func stone_move(g : String, mov : Vector2i) -> void:
 
 func stone_rotate(g : String, dir : Vector2) -> void:
 	grid.stone_manager.stone_rotate(g,dir)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body != self:
+		bodies_intersecting.set(body,true)
+		countdown = true
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if bodies_intersecting.has(body):
+		bodies_intersecting.erase(body)
+		if bodies_intersecting.size() == 0:
+			t = 0
+			countdown = false
 
 #Things to play after animation ends on player, only calls on animations that dont loop. Since only one is death
 #This will only call on any of the death animations

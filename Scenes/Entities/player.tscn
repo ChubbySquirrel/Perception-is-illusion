@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=76 format=3 uid="uid://dxnwu5mg4clyw"]
 
 [ext_resource type="Script" uid="uid://cv7fsqam2dwpl" path="res://Scripts/Entities/player.gd" id="1_blnjl"]
@@ -8,6 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://4tnnt61tw3dl" path="res://Assets/Hana Caraka - Base Character [sample]/Hana Caraka - Base Character [sample]/walk.png" id="4_f5ba2"]
 [ext_resource type="PackedScene" uid="uid://cd12x6je2vf0o" path="res://Scenes/UI/sucess_screen.tscn" id="4_svftf"]
 [ext_resource type="PackedScene" uid="uid://cmc2c5o77x4fu" path="res://Scenes/UI/death_screen.tscn" id="5_a1rq5"]
+=======
+[gd_scene load_steps=5 format=3 uid="uid://dxnwu5mg4clyw"]
+
+[ext_resource type="Script" uid="uid://dml2t80hernuo" path="res://Scripts/Entities/player.gd" id="1_blnjl"]
+>>>>>>> origin/main
 [ext_resource type="PackedScene" uid="uid://dcjax1tgha50o" path="res://Scenes/Bracer.tscn" id="6_yqx0t"]
 [ext_resource type="AudioStream" uid="uid://qe61f78wv76q" path="res://Assets/SFX/Minifantasy_Dungeon_SFX/14_human_death_spin.wav" id="7_ofjh0"]
 [ext_resource type="AudioStream" uid="uid://chjo06bxokmw4" path="res://Assets/SFX/Minifantasy_Dungeon_SFX/16_human_walk_stone_1.wav" id="11_kvkok"]
@@ -17,6 +23,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh265"]
 size = Vector2(32, 32)
 
+<<<<<<< HEAD
 [sub_resource type="AtlasTexture" id="AtlasTexture_kvkok"]
 atlas = ExtResource("2_85s6f")
 region = Rect2(0, 80, 80, 80)
@@ -526,14 +533,18 @@ stream_2/stream = ExtResource("13_pm2yg")
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("sucess_view", "go", "b") groups=["Player"]]
 z_index = 1
+=======
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqx0t"]
+size = Vector2(16, 16)
+
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("b") groups=["Player"]]
+z_index = 2
+>>>>>>> origin/main
 motion_mode = 1
 script = ExtResource("1_blnjl")
-sucess_view = NodePath("Camera2D/Control/SucessScreen")
-go = NodePath("Camera2D/Control/DeathScreen")
 b = NodePath("Bracer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 shape = SubResource("RectangleShape2D_sh265")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -546,8 +557,14 @@ visible = false
 color = Color(0.352261, 0.641023, 0.341156, 1)
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_yqx0t")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
+<<<<<<< HEAD
 [node name="Control" type="Control" parent="Camera2D" node_paths=PackedStringArray("pause_menu")]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
@@ -631,10 +648,13 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+=======
+>>>>>>> origin/main
 [node name="Bracer" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_yqx0t")]
 position = Vector2(280, 88)
 player = NodePath("..")
 
+<<<<<<< HEAD
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_85s6f")
@@ -650,3 +670,7 @@ volume_db = 7.924
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="button_down" from="Camera2D/Control/MarginContainer/Button" to="Camera2D/Control" method="show_pause_menu"]
+=======
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+>>>>>>> origin/main
