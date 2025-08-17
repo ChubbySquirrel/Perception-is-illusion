@@ -15,6 +15,7 @@ func _ready() -> void:
 	grid.stone_manager = stone_manager
 	grid.make_grid_from_file(LevelManager.current_level_location)
 	stone_manager.assign_pivots()
+	grid.player.make_stones(stone_manager.groups.keys(),stone_manager.get_pivot_positions())
 
 
 func _on_grid_player_reached_goal() -> void:

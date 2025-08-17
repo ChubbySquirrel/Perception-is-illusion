@@ -10,7 +10,7 @@ size = Vector2(32, 32)
 size = Vector2(16, 16)
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("b") groups=["Player"]]
-z_index = 1
+z_index = 2
 motion_mode = 1
 script = ExtResource("1_blnjl")
 b = NodePath("Bracer")

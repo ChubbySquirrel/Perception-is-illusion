@@ -102,3 +102,9 @@ func change_position(before : Vector2i, after : Vector2i) -> bool:
 			row.erase(before.y)
 			return true
 	return false
+
+func get_pivot_positions() -> Array[Vector2i]:
+	var result : Array[Vector2i] = []
+	for key in groups.keys():
+		result.append(groups.get(key).pivot.loc)
+	return result

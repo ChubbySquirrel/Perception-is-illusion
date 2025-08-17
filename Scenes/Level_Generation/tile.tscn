@@ -7,10 +7,12 @@ polygon = PackedVector2Array(64, -64, 64, 64, -64, 64, -64, -64)
 uv = PackedVector2Array(128, 0, 128, 128, 0, 128, 0, 0)
 
 [node name="Debug_Text" type="RichTextLabel" parent="."]
+visible = false
 offset_left = -64.0
 offset_top = -64.0
 offset_right = 64.0
 offset_bottom = 64.0
+mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "I: J: "
 

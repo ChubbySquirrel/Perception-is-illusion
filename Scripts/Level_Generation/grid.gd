@@ -42,7 +42,6 @@ func make_grid_from_file(file_path : String) -> void:
 			new_row.append(new_tile)
 		i += 1
 		grid_elements.append(new_row)
-	player.make_stones(stone_manager.groups.keys())
 
 func create_tile(tile_data,i,j,new_row)->Tile:
 	var type_identifier = tile_data.type

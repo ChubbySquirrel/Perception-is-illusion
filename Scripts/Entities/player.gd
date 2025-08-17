@@ -46,9 +46,10 @@ func kill()->void:
 	disabled = true
 	player_died.emit()
 
-func make_stones(stones : Array[String])-> void:
-	for stone in stones:
-		b.create_stone(stone,Vector2i(1,2))
+func make_stones(stones : Array[String], positions : Array[Vector2i])-> void:
+	for i in range(stones.size()):
+		var p : Vector2i = positions[i]
+		b.create_stone(stones[i],b.handle_edges(Vector2(p.y,p.x)))
 
 func check_stone_move(g : String, mov : Vector2i) -> bool:
 	return grid.stone_manager.check_stone_move(g, mov)
