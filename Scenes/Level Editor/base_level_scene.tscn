@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://csng7e4lmqqtn"]
+
+[ext_resource type="PackedScene" uid="uid://r0kck4ihp48s" path="res://Scenes/Level Editor/task_bar.tscn" id="1_m8t1k"]
+[ext_resource type="Script" uid="uid://cfv7xmkkxqmi7" path="res://Scripts/Level Editor/base_level_scene.gd" id="1_mjxvh"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_mjxvh")
+
+[node name="Data" type="Node" parent="."]
+
+[node name="Icons" type="Node" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("1_m8t1k")]

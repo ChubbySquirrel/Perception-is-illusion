@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://r0kck4ihp48s"]
+
+[ext_resource type="Texture2D" uid="uid://bjckpxv8jl1tb" path="res://Assets/Free Flat Greyscale Dungeon Assets/Pit1x1.png" id="1_u1w6a"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 127.0
+offset_bottom = 39.0
+columns = 10
+
+[node name="TextureButton" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_u1w6a")
+
+[node name="Label" type="Label" parent="GridContainer/TextureButton"]
+layout_mode = 2
+offset_left = 18.0
+offset_top = -23.0
+offset_right = 51.0
+text = "Test"
+
+[node name="TextureButton2" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_u1w6a")
+
+[node name="Label" type="Label" parent="GridContainer/TextureButton2"]
+layout_mode = 2
+offset_left = 18.0
+offset_top = -23.0
+offset_right = 51.0
+text = "Test"

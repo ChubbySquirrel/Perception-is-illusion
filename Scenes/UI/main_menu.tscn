@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://osm34xkrkas8"]
 
-[ext_resource type="Script" uid="uid://nkhxvfyajiq7" path="res://Scripts/UI/main_menu.gd" id="1_5wsvm"]
-[ext_resource type="Texture2D" uid="uid://dxgr0l3ftmj6u" path="res://Assets/Free Flat Greyscale Dungeon Assets/stonytile5x5.png" id="2_u7lva"]
+[ext_resource type="Script" uid="uid://bq5uvht1baj7x" path="res://Scripts/UI/main_menu.gd" id="1_5wsvm"]
+[ext_resource type="Texture2D" uid="uid://6o6pnttcljwp" path="res://Assets/Free Flat Greyscale Dungeon Assets/stonytile5x5.png" id="2_u7lva"]
 [ext_resource type="Theme" uid="uid://b5rmpnk3vlw6h" path="res://Resources/Themes/Death_Menu.tres" id="3_mrfpk"]
-[ext_resource type="Texture2D" uid="uid://qehuvk0lj6qc" path="res://Assets/UI/FreeButtons.png/FreeButtons.png" id="4_4pqbp"]
+[ext_resource type="Texture2D" uid="uid://b34olv2w4v3kl" path="res://Assets/UI/FreeButtons.png/FreeButtons.png" id="4_4pqbp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gih0s"]
 atlas = ExtResource("4_4pqbp")
@@ -13,7 +13,7 @@ region = Rect2(64.5316, 83.0281, 15.221, 10.3196)
 atlas = ExtResource("4_4pqbp")
 region = Rect2(80.4936, 83.3517, 15.5949, 10.2461)
 
-[node name="Main Menu" type="Control"]
+[node name="Main Menu" type="Control" groups=["Menu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

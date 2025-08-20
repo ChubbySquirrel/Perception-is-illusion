@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy5wu1e824wr2"]
+
+[ext_resource type="Script" uid="uid://cvlvw6li5lg73" path="res://Scripts/Level Editor/editor_tile.gd" id="1_iyth2"]
+[ext_resource type="Texture2D" uid="uid://bjckpxv8jl1tb" path="res://Assets/Free Flat Greyscale Dungeon Assets/Pit1x1.png" id="1_qtnwc"]
+
+[node name="TextureRect" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_qtnwc")
+script = ExtResource("1_iyth2")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 2
+offset_left = 18.0
+offset_top = -23.0
+offset_right = 51.0
+text = "Test"

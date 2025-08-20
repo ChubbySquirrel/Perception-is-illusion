@@ -1,0 +1,212 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbvi4abaqbidv"]
+
+[ext_resource type="Script" uid="uid://bq5uvht1baj7x" path="res://Scripts/UI/main_menu.gd" id="1_hwywd"]
+[ext_resource type="Texture2D" uid="uid://6o6pnttcljwp" path="res://Assets/Free Flat Greyscale Dungeon Assets/stonytile5x5.png" id="2_11v6o"]
+[ext_resource type="Theme" uid="uid://b5rmpnk3vlw6h" path="res://Resources/Themes/Death_Menu.tres" id="3_fsi3o"]
+[ext_resource type="Texture2D" uid="uid://b34olv2w4v3kl" path="res://Assets/UI/FreeButtons.png/FreeButtons.png" id="4_wsrip"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gih0s"]
+atlas = ExtResource("4_wsrip")
+region = Rect2(64.5316, 83.0281, 15.221, 10.3196)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k33u3"]
+atlas = ExtResource("4_wsrip")
+region = Rect2(80.4936, 83.3517, 15.5949, 10.2461)
+
+[node name="Control" type="Control" groups=["Menu"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main Menu" type="Control" parent="." groups=["Menu"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hwywd")
+
+[node name="ColorRect" type="ColorRect" parent="Main Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Main Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_11v6o")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Main Menu/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Menu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="Main Menu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Main Menu/HBoxContainer/VBoxContainer/ColorRect"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 1712.0
+offset_bottom = 209.0
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "[color=#000000]Level Editor[/color]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Main Menu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Menu/HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="MarginContainer2" type="MarginContainer" parent="Main Menu/HBoxContainer/VBoxContainer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="New" type="TextureButton" parent="Main Menu/HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+theme = ExtResource("3_fsi3o")
+texture_normal = SubResource("AtlasTexture_gih0s")
+texture_pressed = SubResource("AtlasTexture_k33u3")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Menu/HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer2/New"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.5
+offset_top = -2.0
+offset_right = 4.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "New"
+context_menu_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="Main Menu/HBoxContainer/VBoxContainer/Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Settings" type="Button" parent="Main Menu/HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+text = "Settings
+"
+
+[node name="MarginContainer4" type="MarginContainer" parent="Main Menu/HBoxContainer/VBoxContainer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Open" type="TextureButton" parent="Main Menu/HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer4"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+theme = ExtResource("3_fsi3o")
+texture_normal = SubResource("AtlasTexture_gih0s")
+texture_pressed = SubResource("AtlasTexture_k33u3")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Menu/HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer4/Open"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.5
+offset_top = -2.0
+offset_right = 4.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "Open"
+context_menu_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Main Menu/HBoxContainer/VBoxContainer/Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Exit" type="TextureButton" parent="Main Menu/HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+theme = ExtResource("3_fsi3o")
+texture_normal = SubResource("AtlasTexture_gih0s")
+texture_pressed = SubResource("AtlasTexture_k33u3")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Menu/HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer/Exit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.5
+offset_top = -2.0
+offset_right = 4.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "Exit"
+context_menu_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Main Menu/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[connection signal="button_down" from="Main Menu/HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer2/New" to="Main Menu" method="_on_levels_button_down"]
+[connection signal="button_down" from="Main Menu/HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer4/Open" to="Main Menu" method="_on_exit_button_down"]
+[connection signal="button_down" from="Main Menu/HBoxContainer/VBoxContainer/Control/VBoxContainer/MarginContainer/Exit" to="Main Menu" method="_on_exit_button_down"]
